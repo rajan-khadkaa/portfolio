@@ -1,0 +1,126 @@
+/*
+
+https://coolors.co/353535-3c6e71-ffffff-d9d9d9-284b63
+
+Jet (greyish-black)
+#353535
+
+Caribbean Current (greenish-blue)
+#3C6E71
+
+Platinum (silver grey)
+#D9D9D9
+
+Indigo Dye (blueish dark)
+#284B63
+
+BG White
+#FFFFFF
+
+*/
+
+@import "@fontsource/space-grotesk";
+@import "@fontsource/roboto";
+
+:root {
+  /*colors*/
+  --color-white: #f1f1f1;
+  --color-dark: #353535;
+  --color-white-main: #f9f9f9;
+  --color-dark-main: #212121;
+  --color-grey: #eaeaea;
+  --color-grey-optional: #d3d3d3;
+  --color-brand: #3c6e71;
+  --color-brand-secondary: #589ea1;
+  --color-brand-tertiary: #66a9ad;
+  --color-brand-hover: #274648;
+  --color-optional: #284b63;
+  /* --color-optional: #589ea1; */
+
+  /*font*/
+  --font-highlight: "Space Grotesk";
+  --font-primary: "Satoshi";
+  --font-secondary: "Figtree";
+  --font-focus: "Figtree";
+  --font-fall-back: sans-serif;
+
+  /*font-size*/
+  --font-xs: 0.6rem;
+  --font-sm: 0.8rem;
+  --font-md: 1rem;
+  --font-semi-md: 1.1rem;
+  --font-lg: 1.2rem;
+  --font-xl: 1.4rem;
+  --font-xxl: 1.8rem;
+  --font-small-display: 2.5rem;
+  --font-display: 2.8rem;
+  /* --font-sm: 14px;
+  --font-md: 16px;
+  --font-lg: 18px;
+  --font-xl: 22px;
+  --font-xl: 28px; */
+  --horizontal-body-padding: 14rem;
+  --top-body-padding: 2.5rem;
+  --bottom-body-padding: 0rem;
+
+  --section-margin: 6rem;
+
+  --img-bg: #e4e0ce;
+  --img-bdr: #f1efe8;
+
+  /* --img-bg: #434343;
+  --img-bdr: #353535;
+
+  --img-bg: #e8e6dd;
+  --img-bdr: #d0ccb7; */
+}
+
+/* look out for caret rowsing letting text in browser*/
+
+[data-theme="light"] {
+  /* background-image: url("./assets/light_ls.png"); */
+  background-image: url("./assets/light_ls.png");
+  --color-dark-main: #212121;
+  --color-white-main: #f9f9f9;
+  background-size: cover;
+  --color-white: #f1f1f1;
+  --color-dark: #353535;
+  transition: all 0.9s ease;
+  --img-bg: #e4e0ce;
+  --img-bdr: #f1efe8;
+}
+
+[data-theme="dark"] {
+  background-image: url("./assets/dark_ls.png");
+  --color-dark-main: #f9f9f9;
+  --color-white-main: #212121;
+  background-size: cover;
+  --color-white: #353535;
+  --color-dark: #f1f1f1;
+  transition: all 0.5s ease;
+  --img-bg: #434343;
+  --img-bdr: #5c5c5c;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-white);
+  background-image: url("./assets/light_ls.png");
+  background-size: cover;
+  /* padding: var(--top-body-padding) var(--horizontal-body-padding)
+    var(--bottom-body-padding) var(--horizontal-body-padding); */
+  /* padding-left: var(--horizontal-body-padding);
+  padding-right: var(--horizontal-body-padding); */
+  padding-top: var(--top-body-padding);
+}
+
+.light-mode-on {
+  background-color: var(--color-white);
+}
+
+/* .navbar-position {
+  position: fixed;
+  top: 50%;
+  background-color: red;
+  padding: 4rem;
+} */
