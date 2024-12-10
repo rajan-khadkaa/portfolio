@@ -12,6 +12,7 @@ import {
 //https://www.npmjs.com/package/react-toggle
 import Toggle from "react-toggle";
 import "./Navbar.css";
+import { Link } from "react-scroll";
 
 function Navbar({ setModeStatus }) {
   const [active, setActive] = useState("home");
@@ -36,8 +37,10 @@ function Navbar({ setModeStatus }) {
       <div className="navbar">
         <div className="nested-nav-div">
           <div>
-            <a
-              href="#home"
+            <Link
+              to="home"
+              smooth={true}
+              duration={500}
               className={`nav-btn ${active === "home" ? "active" : ""}`}
               onClick={() => handleActiveMenu("home")}
             >
@@ -46,11 +49,13 @@ function Navbar({ setModeStatus }) {
                 // color={"#fcfcfc"}
                 variant={"stroke"}
               />
-            </a>
+            </Link>
           </div>
           <div>
-            <a
-              href="#story"
+            <Link
+              to="story"
+              smooth={true}
+              duration={500}
               className={`nav-btn ${active === "story" ? "active" : ""}`}
               onClick={() => handleActiveMenu("story")}
             >
@@ -59,11 +64,13 @@ function Navbar({ setModeStatus }) {
                 // color={"#fcfcfc"}
                 variant={"stroke"}
               />
-            </a>
+            </Link>
           </div>
           <div>
-            <a
-              href="#expertise"
+            <Link
+              to="expertise"
+              smooth={true}
+              duration={500}
               className={`nav-btn ${active === "expertise" ? "active" : ""}`}
               onClick={() => handleActiveMenu("expertise")}
             >
@@ -72,11 +79,13 @@ function Navbar({ setModeStatus }) {
                 // color={"#fcfcfc"}
                 variant={"stroke"}
               />
-            </a>
+            </Link>
           </div>
           <div>
-            <a
-              href="#projects"
+            <Link
+              to="projects"
+              smooth={true}
+              duration={500}
               className={`nav-btn ${active === "projects" ? "active" : ""}`}
               onClick={() => handleActiveMenu("projects")}
             >
@@ -85,11 +94,13 @@ function Navbar({ setModeStatus }) {
                 // color={"#fcfcfc"}
                 variant={"stroke"}
               />
-            </a>
+            </Link>
           </div>
           <div>
-            <a
-              href="#contact"
+            <Link
+              to="contact"
+              smooth={true}
+              duration={500}
               className={`nav-btn ${active === "contact" ? "active" : ""}`}
               onClick={() => handleActiveMenu("contact")}
             >
@@ -98,7 +109,7 @@ function Navbar({ setModeStatus }) {
                 // color={"#fcfcfc"}
                 variant={"stroke"}
               />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
