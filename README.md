@@ -1,2 +1,2 @@
 This is my personal portfolio.
-Click here to view the demo.
+To view the demo click <a href="https://rajan-khadkaa.github.io/portfolio/">here.</a>
