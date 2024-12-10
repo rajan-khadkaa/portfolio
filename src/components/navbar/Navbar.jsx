@@ -33,7 +33,7 @@ function Navbar({ setModeStatus }) {
   }
 
   return (
-    <nav>
+    <nav className="navbar-itself">
       <div className="navbar">
         <div className="nested-nav-div">
           <div>

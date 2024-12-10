@@ -1,5 +1,7 @@
 .contact-section {
-  margin-top: var(--section-margin);
+  /* margin-top: var(--section-margin); */
+  padding-top: var(--top-section-padding);
+  /* padding-bottom: var(--bottom-section-padding); */
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -7,7 +9,7 @@
 }
 
 .contact-whole-container {
-  width: 60%;
+  width: var(--horiz-width);
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -40,8 +42,8 @@
   gap: 1rem;
   /* justify-content: center; */
   align-items: center;
-  /* border: 1px solid yellow; */
   margin-top: 1rem;
+  height: 2rem;
 }
 
 .contact-titles {
@@ -99,12 +101,21 @@
   resize: none;
 }
 
+.info-box input:focus,
+.info-box textarea:focus {
+  outline: 1.4px solid var(--color-brand-secondary);
+}
+
 .copy-text {
   padding: 0.3rem;
   /* border: 1px solid var(--color-brand); */
   border: none;
   border-radius: 0.5rem;
   background-color: var(--color-brand-tertiary);
+}
+
+.copy-text:hover {
+  background-color: var(--color-brand);
 }
 
 .copied-text {
@@ -130,7 +141,20 @@
   border: none;
   background-color: var(--color-brand);
   color: var(--color-grey);
+  cursor: auto;
+  border: none;
   /* margin: 0rem; */
+}
+.btn-send-message:hover {
+  background-color: var(--color-brand-hover);
+  transition: all 0.3s ease;
+  color: var(--color-grey);
+  border: none;
+  cursor: auto;
+}
+
+.btn-send-message:focus {
+  outline: none;
 }
 
 .btn-msg p {

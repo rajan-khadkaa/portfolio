@@ -32,16 +32,16 @@ BG White
   --color-grey-optional: #d3d3d3;
   --color-brand: #3c6e71;
   --color-brand-secondary: #589ea1;
-  --color-brand-tertiary: #66a9ad;
-  --color-brand-hover: #274648;
+  --color-brand-tertiary: #7db9bc;
+  --color-brand-hover: #2f5557;
   --color-optional: #284b63;
   /* --color-optional: #589ea1; */
 
   /*font*/
-  --font-highlight: "Space Grotesk";
-  --font-primary: "Roboto";
-  --font-secondary: "Figtree";
-  --font-focus: "Figtree";
+  --font-highlight: "Space Grotesk", sans-serif;
+  --font-primary: "Roboto", sans-serif;
+  --font-secondary: "Figtree", sans-serif;
+  --font-focus: "Figtree", sans-serif;
   --font-fall-back: sans-serif;
 
   /*font-size*/
@@ -64,6 +64,8 @@ BG White
   --bottom-body-padding: 0rem;
 
   --section-margin: 6rem;
+  --top-section-padding: 3.5rem;
+  --bottom-section-padding: 2.5rem;
 
   --img-bg: #e4e0ce;
   --img-bdr: #f1efe8;
@@ -73,9 +75,22 @@ BG White
 
   --img-bg: #e8e6dd;
   --img-bdr: #d0ccb7; */
+
+  --horiz-width: 60%;
+}
+/* look out for caret rowsing letting text in browser*/
+
+@media (max-width: 1024px) {
+  section {
+    --horiz-width: 75%;
+  }
 }
 
-/* look out for caret rowsing letting text in browser*/
+@media (max-width: 768px) {
+  section {
+    --horiz-width: 90%;
+  }
+}
 
 [data-theme="light"] {
   /* background-image: url("./assets/light_ls.png"); */

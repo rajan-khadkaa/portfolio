@@ -4,11 +4,12 @@ footer {
   width: 100%;
   background-color: var(--color-brand);
   color: var(--color-grey);
+  display: flex;
+  justify-content: center;
 }
 
 .footer-whole-container {
-  width: 60%;
-  justify-self: center;
+  width: var(--horiz-width);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,8 +27,18 @@ footer {
   gap: 2rem;
 }
 
-.footer-links a {
+.footer-links:hover {
+  color: var(--color-brand);
+  cursor: pointer;
+}
+
+.link-footer {
   text-decoration: none;
+  color: var(--color-grey);
+}
+
+.link-footer:hover {
+  text-decoration: underline;
   color: var(--color-grey);
 }
 

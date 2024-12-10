@@ -29,7 +29,7 @@ function Contact() {
     setCopy(true);
     setTimeout(() => {
       setCopy(false);
-    }, 1200);
+    }, 1500);
   }
 
   function handleSendMessage(e) {
@@ -124,7 +124,7 @@ function Contact() {
               value={username}
               placeholder="Enter your name"
               onChange={(event) => setUserName(event.target.value)}
-              required
+              // required
             />
             <input
               type="email"
@@ -132,14 +132,14 @@ function Contact() {
               value={email}
               placeholder="Enter your email"
               onChange={(event) => setEmail(event.target.value)}
-              required
+              // required
             />
             <textarea
               value={message}
               name="message"
               placeholder="Enter message"
               onChange={(event) => setMessage(event.target.value)}
-              required
+              // required
             />
             <div className="btn-msg">
               <button type="submit" className="btn-send-message">

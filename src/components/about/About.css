@@ -5,12 +5,14 @@
   align-items: center;
   justify-self: center;
   gap: 1rem;
-  margin-top: var(--section-margin);
+  /* margin-top: var(--section-margin); */
+  padding-top: var(--top-section-padding);
+  padding-bottom: var(--bottom-section-padding);
 }
 
 .about-container {
   /* width: 56%; */
-  width: 60%;
+  width: var(--horiz-width);
 }
 
 .about-info-container {

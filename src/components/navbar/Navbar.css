@@ -30,6 +30,14 @@
   /* background-color: var(--color-dark); */
   border: none;
   border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.nav-btn:hover {
+  /* border: red; */
+  color: var(--color-brand);
+  /* background-color: red; */
 }
 
 .nav-btn.active {
@@ -40,6 +48,7 @@
 
 .btns-toggle {
   position: fixed;
+  border: none;
   display: flex;
   gap: 0.25rem;
   padding: 0.6rem;
@@ -52,21 +61,65 @@
   /* here 1 rem is the margin for button and horizontal-body-padding (14 rem) is the body padding from right */
 }
 
+@media (max-width: 768px) {
+  .btns-toggle {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.6rem;
+    border-radius: 4rem;
+    background-color: var(--color-white-main);
+    justify-content: flex-end;
+    align-self: flex-start;
+    top: 2rem;
+    right: 1rem;
+    /* transform: rotate(90deg); */
+    transition: all 0.2s ease;
+  }
+}
+/* 
+//changed here
+//checkpoint */
 .btn-toggle {
   padding: 0.6rem;
   font-size: 1rem;
   border: none;
   background-color: var(--color-white-main);
   border-radius: 50%;
-  /* transition: all 0.8s ease-in; */
+  transition: all 0.3s ease-in;
+}
+
+.btn-toggle:focus {
+  outline: none;
 }
 
 .btn-toggle.light-active {
   background-color: var(--color-dark);
   background-color: #cfcf7b;
+  border: none;
+}
+
+.btn-toggle.light-active:hover {
+  background-color: #adad58;
+  border: none;
+}
+
+.btn-toggle.light-active:focus {
+  outline: none;
 }
 
 .btn-toggle.dark-active {
   background-color: var(--color-dark);
   background-color: #cfcf7b;
+  border: none;
+}
+
+.btn-toggle.dark-active:hover {
+  background-color: #adad58;
+  border: none;
+}
+
+.btn-toggle.dark-active:focus {
+  outline: none;
 }

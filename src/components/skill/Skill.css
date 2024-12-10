@@ -1,8 +1,16 @@
 .skill-section {
-  margin-top: var(--section-margin);
+  /* margin-top: var(--section-margin); */
+  padding-top: var(--top-section-padding);
+  padding-bottom: var(--bottom-section-padding);
+  display: flex;
+  justify-content: center;
+}
+
+.whole-skill-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: var(--horiz-width);
 }
 
 .skill-titles {
@@ -33,7 +41,7 @@
   justify-content: center;
   gap: 1.6rem;
   flex-wrap: wrap;
-  width: 60%;
+  width: 100%;
 }
 
 .primary-card,
