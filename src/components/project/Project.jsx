@@ -6,7 +6,7 @@ import project3 from "../../assets/project3.jpg";
 
 function Project() {
   return (
-    <section className="project-section">
+    <section id="projects" className="project-section">
       <div className="project-whole-container">
         <div className="project-titles">
           <p>What I have been working on</p>

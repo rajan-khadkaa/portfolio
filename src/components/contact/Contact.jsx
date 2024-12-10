@@ -88,7 +88,7 @@ function Contact() {
   }
 
   return (
-    <section className="contact-section">
+    <section id="contact" className="contact-section">
       <div className="contact-whole-container">
         <div className="info-text">
           <div className="contact-titles">

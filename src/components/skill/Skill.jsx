@@ -7,7 +7,7 @@ import {
 
 function Skill() {
   return (
-    <section className="skill-section">
+    <section id="expertise" className="skill-section">
       <div className="skill-titles">
         <p>Skills that define me</p>
         <h2>My Expertise</h2>

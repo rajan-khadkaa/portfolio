@@ -14,7 +14,7 @@ import profImage from "../../assets/profile.png";
 function Home(modeStatus) {
   console.log("mode in home is", modeStatus);
   return (
-    <section className="home-section">
+    <section id="home" className="home-section">
       <div className="home-whole-container">
         <div className="home-icons">
           <a href="www.linkedin.com" target="_blank">

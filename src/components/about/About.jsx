@@ -7,7 +7,7 @@ import {
 
 function About() {
   return (
-    <section className="about-section">
+    <section id="story" className="about-section">
       <div className="about-container">
         <div className="about-info-container">
           <div className="about-titles">
