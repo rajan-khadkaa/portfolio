@@ -40,7 +40,7 @@ function Navbar({ setModeStatus }) {
             <Link
               to="home"
               smooth={true}
-              duration={500}
+              duration={600}
               className={`nav-btn ${active === "home" ? "active" : ""}`}
               onClick={() => handleActiveMenu("home")}
             >
@@ -55,7 +55,7 @@ function Navbar({ setModeStatus }) {
             <Link
               to="story"
               smooth={true}
-              duration={500}
+              duration={600}
               className={`nav-btn ${active === "story" ? "active" : ""}`}
               onClick={() => handleActiveMenu("story")}
             >
@@ -70,7 +70,7 @@ function Navbar({ setModeStatus }) {
             <Link
               to="expertise"
               smooth={true}
-              duration={500}
+              duration={600}
               className={`nav-btn ${active === "expertise" ? "active" : ""}`}
               onClick={() => handleActiveMenu("expertise")}
             >
@@ -85,7 +85,7 @@ function Navbar({ setModeStatus }) {
             <Link
               to="projects"
               smooth={true}
-              duration={500}
+              duration={600}
               className={`nav-btn ${active === "projects" ? "active" : ""}`}
               onClick={() => handleActiveMenu("projects")}
             >
@@ -100,7 +100,7 @@ function Navbar({ setModeStatus }) {
             <Link
               to="contact"
               smooth={true}
-              duration={500}
+              duration={600}
               className={`nav-btn ${active === "contact" ? "active" : ""}`}
               onClick={() => handleActiveMenu("contact")}
             >

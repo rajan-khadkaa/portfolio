@@ -1,8 +1,8 @@
 import React from "react";
 import "./Project.css";
-import project1 from "../../assets/project1.jpg";
+import project1 from "../../assets/rps.jpg";
 import project2 from "../../assets/project2.jpg";
-import project3 from "../../assets/proj3.jpg";
+import project3 from "../../assets/dark_portfolio.jpg";
 import {
   Github01Icon,
   GithubIcon,

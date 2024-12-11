@@ -52,6 +52,13 @@
   min-width: 200px;
   border-radius: 1rem;
   flex: 1;
+  transition: all 0.5s ease;
+}
+
+.primary-card:hover,
+.secondary-card:hover {
+  transform: scale(1.05);
+  background-color: var(--color-brand-secondary);
 }
 
 .skill-topic {

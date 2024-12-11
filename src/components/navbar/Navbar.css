@@ -71,9 +71,9 @@
     border-radius: 4rem;
     background-color: var(--color-white-main);
     justify-content: flex-end;
-    align-self: flex-start;
     top: 2rem;
     right: 1rem;
+    bottom: auto;
     /* transform: rotate(90deg); */
     transition: all 0.2s ease;
   }
