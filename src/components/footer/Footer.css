@@ -1,6 +1,6 @@
 footer {
   margin-top: var(--section-margin);
-  height: 250px;
+  height: 300px;
   width: 100%;
   background-color: var(--color-brand);
   color: var(--color-grey);
@@ -11,15 +11,33 @@ footer {
 .footer-whole-container {
   width: var(--horiz-width);
   display: flex;
+  width: 100%;
   flex-direction: column;
   align-items: center;
   padding: 2rem 0rem 4rem 0rem;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
-.footer-whole-container h2,
+@media (max-width: 768px) {
+  .footer-whole-container {
+    box-sizing: border-box;
+    padding: 2rem 0rem 4rem 0rem;
+  }
+
+  .footer-links {
+    gap: 1.5rem !important;
+    margin: 0;
+  }
+}
+
 .footer-whole-container p {
   margin: 0px;
+  flex: 1;
+}
+
+.footer-whole-container h2 {
+  flex: 1;
+  margin: 0rem auto -2rem auto;
 }
 
 .footer-links {

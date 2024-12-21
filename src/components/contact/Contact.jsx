@@ -80,7 +80,7 @@ function Contact() {
             )
         );
     } else {
-      setValidationMsg("** Please fill out all three fields.");
+      setValidationMsg("Please fill out all fields.");
       setTimeout(() => {
         setValidationMsg("");
       }, 2600);

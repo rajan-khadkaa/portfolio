@@ -93,7 +93,7 @@
     flex: 1;
     width: 100%;
     /* min-width: 220px; */
-    max-width: 146px;
+    /* max-width: 146px; */
     gap: 0.8rem;
   }
 }

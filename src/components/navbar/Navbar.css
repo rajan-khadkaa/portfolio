@@ -77,6 +77,10 @@
     /* transform: rotate(90deg); */
     transition: all 0.2s ease;
   }
+
+  .btn-toggle {
+    width: fit-content;
+  }
 }
 /* 
 //changed here
