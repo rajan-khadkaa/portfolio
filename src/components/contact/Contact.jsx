@@ -18,12 +18,6 @@ function Contact() {
   const publicKey = import.meta.env.VITE_PUBLIC_KEY;
   const replyTemplateId = import.meta.env.VITE_REPLY_TEMPLATE_ID;
 
-  // const serviceId = "service_c12ybpg";
-  // const templateId = "template_leh7fmk";
-  // const publicKey = "TmdMHvoGjf6Rv_mxa";
-
-  // console.log(serviceId, templateId, publicKey, replyTemplateId);
-
   function handleCopy() {
     navigator.clipboard.writeText("rajankhadkaa0809@gmail.com");
     setCopy(true);
