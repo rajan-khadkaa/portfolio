@@ -10,8 +10,8 @@ const words = [
 const heroWords = ["Web Apps", "Interfaces", "Platforms", "Web Apps"];
 
 const counterItems = [
-  // { label: "Mobile App Projects", tool: "React Native", domain: "mobile" },
-  { label: "Development", tool: "MERN & Next.js", domain: "web" },
+  { label: "Mobile Apps", tool: "React Native", domain: "mobile" },
+  { label: "Web Apps", tool: "MERN & Next.js", domain: "web" },
   {
     label: "Design",
     tool: "Figma, Photoshop & Ilustrator",
@@ -282,43 +282,6 @@ const mobProjects = [
   {
     glink: true,
     project1: {
-      title: "Paydrift",
-      description:
-        "Paydrift is a bill-splitting app for group trips and hangouts. It calculates individual dues, displays payment statuses, and makes expense sharing effortless.",
-      projectIcons: [
-        {
-          name: "React Native",
-          image: "/images/tech-logo/original/react-native.svg",
-        },
-        {
-          name: "Tailwind",
-          image: "/images/tech-logo/original/tailwind.svg",
-        },
-        {
-          name: "Node.js",
-          image: "/images/tech-logo/original/nodejs.svg",
-        },
-        {
-          name: "MongoDB",
-          image: "/images/tech-logo/original/mongodb.svg",
-        },
-        {
-          name: "Firebase",
-          image: "/images/tech-logo/original/firebase.svg",
-        },
-        {
-          name: "Cloudinary",
-          image: "/images/tech-logo/original/cloudinary.svg",
-        },
-      ],
-      thumbnail: "/images/thumbnails/paydrift.png",
-      link: {
-        githubLink: "https://github.com/rajan-khadkaa/plan-it",
-        demoLink: "https://github.com/rajan-khadkaa/plan-it",
-      },
-    },
-
-    project2: {
       title: "Medsync",
       description:
         "Medsync is a medication reminder app that tracks daily dosages. Users set their schedules and check off doses to stay on top of their health routine.",
@@ -331,28 +294,67 @@ const mobProjects = [
           name: "Tailwind",
           image: "/images/tech-logo/original/tailwind.svg",
         },
-        {
-          name: "Node.js",
-          image: "/images/tech-logo/original/nodejs.svg",
-        },
-        {
-          name: "MongoDB",
-          image: "/images/tech-logo/original/mongodb.svg",
-        },
-        {
-          name: "JWT",
-          image: "/images/tech-logo/original/jwt.svg",
-        },
+        // {
+        //   name: "Node.js",
+        //   image: "/images/tech-logo/original/nodejs.svg",
+        // },
+        // {
+        //   name: "MongoDB",
+        //   image: "/images/tech-logo/original/mongodb.svg",
+        // },
+        // {
+        //   name: "JWT",
+        //   image: "/images/tech-logo/original/jwt.svg",
+        // },
       ],
-      tthumbnail: "/images/thumbnails/medsync.png",
+      thumbnail: "/images/thumbnails/medsync.png",
       link: {
-        githubLink: "https://github.com/rajan-khadkaa/plan-it",
-        demoLink: "https://github.com/rajan-khadkaa/plan-it",
+        githubLink: "https://github.com/rajan-khadkaa/medsync-mobile-app",
+        demoLink:
+          "https://drive.google.com/file/d/1J_flgZBj9lpFztrg_G69bkrJN3kJbiE2/view?usp=drivesdkhttps://drive.google.com/file/d/1SFdPx79r85_CEcjq1kwdU0NdB69PBQu-/view?usp=drivesdk",
+      },
+    },
+
+    project2: {
+      title: "Paydrift (Working on it)",
+      description:
+        "Paydrift is a bill-splitting app for group trips and hangouts. It calculates individual dues, displays payment statuses, and makes expense sharing effortless.",
+      projectIcons: [
+        {
+          name: "React Native",
+          image: "/images/tech-logo/original/react-native.svg",
+        },
+        {
+          name: "Tailwind",
+          image: "/images/tech-logo/original/tailwind.svg",
+        },
+        // {
+        //   name: "Node.js",
+        //   image: "/images/tech-logo/original/nodejs.svg",
+        // },
+        // {
+        //   name: "MongoDB",
+        //   image: "/images/tech-logo/original/mongodb.svg",
+        // },
+        // {
+        //   name: "Firebase",
+        //   image: "/images/tech-logo/original/firebase.svg",
+        // },
+        // {
+        //   name: "Cloudinary",
+        //   image: "/images/tech-logo/original/cloudinary.svg",
+        // },
+      ],
+      thumbnail: "/images/thumbnails/paydrift.png",
+      link: {
+        githubLink: "https://github.com/rajan-khadkaa",
+        demoLink:
+          "https://drive.google.com/file/d/1SFdPx79r85_CEcjq1kwdU0NdB69PBQu-/view?usp=drivesdk",
       },
     },
 
     project3: {
-      title: "Genflick",
+      title: "Genflick (Working on it)",
       description:
         "Genflick is an AI-powered app that turns user prompts into creative short videos. Enter an idea and watch it become a visual story instantly.",
       projectIcons: [
@@ -367,8 +369,8 @@ const mobProjects = [
       ],
       thumbnail: "/images/thumbnails/genflick.png",
       link: {
-        githubLink: "https://github.com/rajan-khadkaa/plan-it",
-        demoLink: "https://github.com/rajan-khadkaa/plan-it",
+        githubLink: "https://github.com/rajan-khadkaa",
+        demoLink: "https://github.com/rajan-khadkaa",
       },
     },
   },

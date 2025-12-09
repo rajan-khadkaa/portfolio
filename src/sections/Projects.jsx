@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import {
   counterItems,
-  // mobProjects,
+  mobProjects,
   webProjects,
   designProjects,
 } from "../constants";
@@ -66,7 +66,7 @@ const Projects = () => {
         ))}
       </div>
       <div className="w-full">
-        {/* {domain === "mobile" && <ProjectInfo domainProjects={mobProjects} />} */}
+        {domain === "mobile" && <ProjectInfo domainProjects={mobProjects} />}
         {domain === "web" && <ProjectInfo domainProjects={webProjects} />}
         {domain === "design" && <ProjectInfo domainProjects={designProjects} />}
       </div>
