@@ -48,6 +48,8 @@ const ProjectInfo = ({ domainProjects }) => {
     });
   }, []);
 
+  const checkMobileProjNames = domainProjects[0].project1.title === "Medsync";
+
   return (
     <>
       {domainProjects.map((domProjects, index) => (
@@ -143,6 +145,7 @@ const ProjectInfo = ({ domainProjects }) => {
                 gitlink={domProjects.glink}
                 github={domProjects.project1.link.githubLink}
                 demo={domProjects.project1.link.demoLink}
+                playVidIcon={checkMobileProjNames}
                 hover={hovered1}
               />
             </div>
@@ -230,6 +233,7 @@ const ProjectInfo = ({ domainProjects }) => {
                   gitlink={domProjects.glink}
                   github={domProjects.project2.link.githubLink}
                   demo={domProjects.project2.link.demoLink}
+                  playVidIcon={checkMobileProjNames}
                   hover={hovered2}
                 />
               </div>
@@ -318,6 +322,7 @@ const ProjectInfo = ({ domainProjects }) => {
                   gitlink={domProjects.glink}
                   github={domProjects.project3.link.githubLink}
                   demo={domProjects.project3.link.demoLink}
+                  playVidIcon={checkMobileProjNames}
                   hover={hovered3}
                 />
               </div>

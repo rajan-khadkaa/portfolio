@@ -60,7 +60,7 @@ const Contact = () => {
               <div className="flex flex-col text-lg">
                 <p className=" mt-6 text-gray-400 ">
                   {/* <p className="text-lg max-w-[290px] mt-6 text-gray-400"> */}
-                  I’m a dedicated React Native | Frontend developer, looking for
+                  I’m a dedicated React Native & Frontend developer, looking for
                   internships where I can grow, contribute, and learn from
                   real-world projects.
                   <br /> <br /> When I’m not developing, I sketch app ideas,
