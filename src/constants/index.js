@@ -7,7 +7,7 @@ const words = [
   { text: "UI/UX Flow", imgPath: "/images/concepts.svg" },
 ];
 
-const heroWords = ["Applications", "Interfaces", "Platforms", "Applications"];
+const heroWords = ["Apps", "Interfaces", "Platforms", "Apps"];
 
 const counterItems = [
   { label: "Mobile Apps", tool: "React Native", domain: "mobile" },
@@ -53,7 +53,7 @@ export const workProcess = [
     techLogo: [
       {
         path: "/images/tech-logo/original/react.svg",
-        name: "React",
+        name: "React Native",
         color: "#61DAFB",
       },
       {
@@ -89,7 +89,7 @@ export const workProcess = [
       },
       {
         path: "/images/tech-logo/original/nextjs.svg",
-        name: "Next.js",
+        name: "Next.js (API)",
         color: "#FFFFFF",
       },
     ],
