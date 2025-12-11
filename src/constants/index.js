@@ -7,7 +7,7 @@ const words = [
   { text: "UI/UX Flow", imgPath: "/images/concepts.svg" },
 ];
 
-const heroWords = ["Web Apps", "Interfaces", "Platforms", "Web Apps"];
+const heroWords = ["Applications", "Interfaces", "Platforms", "Applications"];
 
 const counterItems = [
   { label: "Mobile Apps", tool: "React Native", domain: "mobile" },
@@ -157,7 +157,7 @@ const socialImgs = [
 ];
 
 const skillListTop = [
-  { name: "React", path: "/images/tech-logo/plain/react.svg" },
+  { name: "React Native", path: "/images/tech-logo/plain/react.svg" },
   { name: "Node.js", path: "/images/tech-logo/plain/nodejs.svg" },
   { name: "Next.js", path: "/images/tech-logo/plain/nextjs.svg" },
   { name: "Three.js", path: "/images/tech-logo/plain/threejs.svg" },

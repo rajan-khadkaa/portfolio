@@ -13,7 +13,7 @@ import ProjectInfo from "../components/ProjectInfo";
 
 const Projects = () => {
   const sectionRef = useRef(null);
-  const [domain, setDomain] = useState("web");
+  const [domain, setDomain] = useState("mobile");
 
   useGSAP(() => {
     gsap.fromTo(
