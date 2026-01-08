@@ -41,7 +41,7 @@ const Hero = () => {
         <header className="flex flex-col justify-center md:w-fit w-screen md:px-14 lg:pl-20 px-5">
           <div className="flex flex-col gap-2 lg:gap-7">
             <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I’m Rajan. I am a React Native Developer
+              Hi, I’m Rajan, Software Developer (React & React Native)
             </p>
             <div className="hero-text">
               <div className="flex flex-row flex-wrap items-center">
