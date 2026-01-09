@@ -40,9 +40,14 @@ const Hero = () => {
         {/* LEFT: Hero Content */}
         <header className="flex flex-col justify-center md:w-fit w-screen md:px-14 lg:pl-20 px-5">
           <div className="flex flex-col gap-2 lg:gap-7">
-            <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-              Hi, I’m Rajan, Software Developer (React & React Native)
-            </p>
+            {/* <p className="text-white-50 md:text-xl relative z-10 pointer-events-none max-w-xl">
+              Hi, I'm Rajan,
+              <br />A Software Developer (React & React Native)
+            </p> */}
+            <div className="flex flex-col gap-1 text-white-50 md:text-xl relative z-10 pointer-events-none">
+              <span>Hi, I'm Rajan,</span>
+              <span>A Software Developer (React & React Native)</span>
+            </div>
             <div className="hero-text">
               <div className="flex flex-row flex-wrap items-center">
                 <h1 className="mr-5">I build</h1>

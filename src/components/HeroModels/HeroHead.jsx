@@ -48,6 +48,7 @@ const HeroHead = () => {
     <div className="w-full h-full">
       <Canvas
         // frameloop={"always"}  //this is for another shape
+        // frameloop="always" //this is for vr-headset (in small screen it needs to rotate so it is set always but in large screen it should only rotate when user interact so 'demand')
         frameloop={isMobile || isTabletPortrait ? "always" : "demand"} //this is for vr-headset (in small screen it needs to rotate so it is set always but in large screen it should only rotate when user interact so 'demand')
         camera={{ position: [8, 0, 8], fov: 20 }}
         style={isMobile || isTabletPortrait ? { pointerEvents: "none" } : {}}
@@ -66,9 +67,12 @@ const HeroHead = () => {
           // autoRotate={true}
           // autoRotateSpeed={2.0}
           ///these three for vr-headset
-          enabled={!isMobile && !isTabletPortrait}
-          autoRotate={isMobile || isTabletPortrait}
-          autoRotateSpeed={5.0}
+          // enabled="true" //can rotate in all devices including mobile, tablets
+          enabled={!isMobile && !isTabletPortrait} //can't rotate in mobile and tablets
+          // autoRotate="true" //rotates in pc as well
+          autoRotate={isMobile || isTabletPortrait} //rotates only in mobile and tablets
+          autoRotateSpeed={isMobile || isTabletPortrait ? 5.0 : 1.0} //rotates slow for pc and faster for mobiles and tablets
+          // autoRotateSpeed={5.0} //rotates faster
           enablePan={false}
           // maxDistance={20}
           // minDistance={8}
