@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap");
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* this two are for firefox */
 /* .scrollbar-thin {
@@ -72,6 +73,26 @@ section {
 }
 
 @layer components {
+  .blue-gradient {
+    @apply bg-gradient-to-br from-[#0191FF] via-black to-white/45 border-zinc-700;
+  }
+
+  .bmap {
+    @apply border-2 border-red-500;
+  }
+
+  .bento-radius {
+    @apply rounded-none;
+  }
+
+  .rounded-field {
+    @apply rounded-none;
+  }
+
+  .rounded-card {
+    @apply rounded-none;
+  }
+
   .padding-x {
     @apply px-5 md:px-10;
   }
@@ -125,7 +146,7 @@ section {
   }
 
   .hero-wrapper {
-    @apply overflow-hidden relative h-[80vh] md:h-[92vh] lg:h-[100vh] flex flex-col md:flex-col lg:flex-row gap-4 md:gap-14 lg:gap-0 justify-between items-center;
+    @apply overflow-hidden relative h-[80vh] md:h-[92vh] lg:h-[50vh] xl:h-[100vh] flex flex-col md:flex-col lg:flex-row gap-4 md:gap-14 lg:gap-0 justify-between items-center;
   }
 
   .hero-text-wrapper {
@@ -226,10 +247,10 @@ section {
     }
 
     .thumbnail-img-wrapper {
-      @apply w-full h-full flex justify-center items-center overflow-hidden rounded-2xl;
+      @apply w-full h-full flex justify-center items-center overflow-hidden;
 
       .thumbnail-img {
-        @apply object-cover w-full h-auto;
+        @apply object-cover w-[80%] h-auto;
       }
     }
   }

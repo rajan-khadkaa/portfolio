@@ -1,14 +1,8 @@
 import React, { useState, useRef } from "react";
-import {
-  counterItems,
-  mobProjects,
-  webProjects,
-  designProjects,
-} from "../constants";
+import { counterItems } from "../constants";
 import Tilt from "react-parallax-tilt";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-
 import ProjectInfo from "../components/ProjectInfo";
 
 const Projects = () => {
@@ -45,7 +39,7 @@ const Projects = () => {
             tiltMaxAngleX={3}
             tiltMaxAngleY={3}
             style={{
-              borderRadius: 12,
+              // borderRadius: 12,
               overflow: "hidden",
               height: "fit-content",
               cursor: "pointer",
@@ -54,9 +48,18 @@ const Projects = () => {
             <div
               onClick={() => setDomain(item.domain)}
               className={`${
+                item.domain === domain
+                  ? "blue-gradient"
+                  : // ? "bg-gradient-to-br from-orange-500 via-[#0191FF] to-black border-zinc-700"
+                    "border-black"
+              } border-[1px] bg-zinc-900 p-10 flex flex-col justify-center transition-all duration-300`}
+            >
+              {/* <div
+              onClick={() => setDomain(item.domain)}
+              className={`${
                 item.domain === domain ? "border-zinc-700" : "border-zinc-900"
               } border-[1.5px] bg-zinc-900 p-10 flex flex-col justify-center rounded-2xl`}
-            >
+            > */}
               <div className="text-white-50 text-lg mb-4">Let's see</div>
               <div className="counter-number text-white text-3xl lg:text-4xl font-bold mb-2">
                 {item.label}
@@ -66,9 +69,9 @@ const Projects = () => {
         ))}
       </div>
       <div className="w-full">
-        {domain === "mobile" && <ProjectInfo domainProjects={mobProjects} />}
-        {domain === "web" && <ProjectInfo domainProjects={webProjects} />}
-        {domain === "design" && <ProjectInfo domainProjects={designProjects} />}
+        {domain === "mobile" && <ProjectInfo domainType="mobile" />}
+        {domain === "web" && <ProjectInfo domainType="web" />}
+        {domain === "design" && <ProjectInfo domainType="design" />}
       </div>
     </section>
   );

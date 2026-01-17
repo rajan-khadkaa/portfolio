@@ -3,334 +3,280 @@ import { FaArrowUp, FaGithub } from "react-icons/fa6";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
-import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
-import BentoLink from "./BentoLink";
-import ProjectIcons from "./ProjectIcons";
+import { designProjects, mobProjects, webProjects } from "../constants";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ProjectInfo = ({ domainProjects }) => {
-  //three infoBox required for btn click info box
-  const [infoBox1, setInfoBox1] = useState(false);
-  const [infoBox2, setInfoBox2] = useState(false);
-  const [infoBox3, setInfoBox3] = useState(false);
-  const [hovered1, setHovered1] = useState(false);
-  const [hovered2, setHovered2] = useState(false);
-  const [hovered3, setHovered3] = useState(false);
+const ProjectInfo = ({ domainType }) => {
   const project1Ref = useRef(null);
   const project2Ref = useRef(null);
   const project3Ref = useRef(null);
 
   useGSAP(() => {
-    const projCards = [
-      project1Ref.current,
-      project2Ref.current,
-      project3Ref.current,
-    ];
-    projCards.forEach((card, index) => {
-      gsap.fromTo(
-        card,
-        {
-          y: 50,
-          opacity: 0,
-        },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          // delay: 0.3 * (index + 1),
-          scrollTrigger: {
-            trigger: card,
-            start: "top bottom-=100",
-          },
-        }
-      );
+    // const projCards = [
+    //   project1Ref.current,
+    //   project2Ref.current,
+    //   project3Ref.current,
+    // ];
+    // projCards.forEach((card, index) => {
+    //   gsap.fromTo(
+    //     card,
+    //     {
+    //       y: 50,
+    //       opacity: 0,
+    //     },
+    //     {
+    //       y: 0,
+    //       opacity: 1,
+    //       duration: 1,
+    //       // delay: 0.3 * (index + 1),
+    //       scrollTrigger: {
+    //         trigger: card,
+    //         start: "top bottom-=100",
+    //       },
+    //     }
+    //   );
+    // });
+
+    // / Float animation for each icon
+    gsap.to(".tech-grid-icon", {
+      y: -10, // Float up
+      duration: 2,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      stagger: {
+        each: 0.2,
+        from: "random", // Random start times
+      },
+    });
+
+    // Gentle rotation
+    gsap.to(".tech-grid-icon img", {
+      rotation: 5,
+      duration: 3,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      stagger: 0.3,
     });
   }, []);
 
-  const checkMobileProjNames = domainProjects[0].project1.title === "Medsync";
+  const chosenDomProj =
+    domainType === "web"
+      ? webProjects
+      : domainType === "mobile"
+        ? mobProjects
+        : designProjects;
 
-  return (
-    <>
-      {domainProjects.map((domProjects, index) => (
-        <div key={index} className="showcaselayout">
-          {/* TOP */}
-          <div ref={project1Ref} className="first-project-wrapper">
-            <div
-              onMouseEnter={() => setHovered1(true)}
-              onMouseLeave={() => setHovered1(false)}
-              className="image-wrapper info-hover-box group relative"
-            >
-              {/* OVERLAY-INFO ON HOVER */}
-              <div
-                className={`top-text-content ${
-                  hovered1 ? "translate-x-0" : "-translate-x-[100%]"
-                }`}
-              >
-                {/* OVERLAY-INFO WITH BUTTON */}
-                {/* <div
-                  className={`top-text-content ${
-                  infoBox1 ? "translate-x-0" : "-translate-x-[100%]"
-                  }`}
-                  > */}
-                <div className="info-container">
-                  <div className="h-full p-6 lg:p-8">
-                    <div className="flex flex-col px-0 pb-5 pt-2 lg:pb-8 lg:px-2 lg:pt-0 items-start">
-                      {/* <div className="flex flex-col mb-4 lg:mb-8 items-start rounded-2xl"> */}
-                      <div className="flex gap-6 items-center">
-                        <h2 className="text-2xl font-bold">
-                          {domProjects.project1.title}
-                        </h2>
-                        {/* <a
-                      className="size-14 rounded-full bg-zinc-800 hover:bg-zinc-600 transition-colors duration-200 flex items-center justify-center"
-                      href="https://github.com/rajan-khadkaa/plan-it"
-                      target="_blank"
-                    >
-                      {" "}
-                      <FaGithub size={24} />
-                    </a> */}
-                      </div>
+  return domainType === "web" ? (
+    <div className="flex flex-col gap-8">
+      {chosenDomProj.map((proj, ind) => (
+        <div className="w-full">
+          <div>
+            <div className="flex justify-between mb-3">
+              <h2 className="text-lg md:text-2xl font-bold">{proj.title}</h2>
+              <div className=" flex items-center justify-center gap-6">
+                <a
+                  className={`cursor-pointer relative overflow-hidden group text-white text-xl flex gap-1 items-center justify-center`}
+                  href={proj.link.githubLink}
+                  target="_blank"
+                >
+                  <p className="text-base md:text-xl ml-0">Github</p>
 
-                      <p className="text-gray-400 mt-2 md:text-lg">
-                        {domProjects.project1.description}
-                      </p>
-                    </div>
-                    <div className="flex h-[50%] overflow-auto scrollbar-thin flex-wrap w-full flex-row gap-x-6 gap-y-4 lg:px-2">
-                      {domProjects.project1.projectIcons.map((proj) => (
-                        <ProjectIcons
-                          key={proj.name}
-                          name={proj.name}
-                          image={proj.image}
-                        />
+                  <FaArrowUp className="rotate-45" size={16} />
+                  <div className="w-[100%] absolute left-0 bottom-0 h-[0.1rem] bg-white -translate-x-[102%] group-hover:translate-x-0 transition-transform duration-200"></div>
+                </a>
+                <a
+                  className={`cursor-pointer relative overflow-hidden group text-white text-xl flex gap-1 items-center justify-center`}
+                  href={proj.link.demoLink}
+                  target="_blank"
+                >
+                  <p className="text-base md:text-xl ml-0">Demo</p>
+
+                  <FaArrowUp className="rotate-45" size={16} />
+                  <div className="w-[100%] absolute left-0 bottom-0 h-[0.1rem] bg-white -translate-x-[102%] group-hover:translate-x-0 transition-transform duration-200"></div>
+                </a>
+              </div>
+            </div>
+            <div>
+              {/* <div className="bg-yellow-400 sm:bg-red-400 md:bg-green-400 lg:bg-blue-500 xl:bg-white-50 grid grid-cols-2 grid-rows-5 sm:grid-cols-3 sm:grid-rows-3 lg:grid-cols-3 lg:grid-rows-3 gap-2 max-h-[90vh] sm:max-h-[90vh] lg:max-h-[90vh]"> */}
+              <div className="grid grid-cols-2 grid-rows-5 sm:grid-cols-3 sm:grid-rows-3 lg:grid-cols-3 lg:grid-rows-3 gap-2 max-h-[90vh] sm:max-h-[90vh] lg:max-h-[90vh]">
+                <div className="col-span-2 row-span-1 sm:row-span-1 sm:col-span-3 lg:col-span-2 lg:row-span-2 first-project-wrapper">
+                  <div className="thumbnail-img-wrapper bg-black-50 bento-radius">
+                    <img
+                      className="thumbnail-img"
+                      src={proj.thumbnail}
+                      alt={`${proj.title} thumbnail image`}
+                    />
+                  </div>
+                </div>
+                <div className="row-start-2 row-span-1 col-span-2 sm:row-start-2 sm:col-start-3 sm:col-span-1 sm:row-span-1 lg:row-start-3 lg:col-start-1 lg:col-span-1 bg-black-50 p-5 bento-radius">
+                  <p className="text-base lg:text-lg text-white-50">
+                    {proj.description}
+                  </p>
+                </div>
+
+                {/* half image */}
+                <div className=" overflow-hidden row-start-3 col-start-2 row-span-1 col-span-1 sm:row-start-3 sm:row-span-1 sm:col-span-2 lg:row-start-3 lg:col-span-1 lg:col-start-2 bg-black-50 relative bento-radius">
+                  <img
+                    className="absolute top-0 left-0 scale-125 xl:-top-16 xl:left-0 xl:scale-100"
+                    src={proj.image}
+                    alt={`${proj.title} image`}
+                  />
+                  <div className="absolute inset-0 bg-black/20 z-10"></div>
+                </div>
+                <div className="row-start-3 row-span-1 col-span-1 sm:row-start-3 sm:col-start-3 sm:row-span-1 sm:col-span-1 lg:col-start-3 lg:row-start-1 bg-black-50  flex items-center justify-center bento-radius">
+                  <img
+                    className="w-[60%]"
+                    src={proj.logo}
+                    alt={`${proj.title} logo image`}
+                  />
+                </div>
+                <div className="row-start-4 row-span-2 col-span-2 sm:row-start-2 sm:row-span-1 sm:col-span-2 lg:row-span-2 lg:col-start-3 lg:row-start-2 flex justify-center items-center bg-black-50 bento-radius">
+                  <div className="relative w-full h-full p-6 overflow-hidden">
+                    <h3 className="text-lg lg:text-xl font-bold text-white text-center mb-4 lg:mb-8">
+                      Tech Stack Used
+                    </h3>
+
+                    {/* 3x3 or 4x3 Grid */}
+                    <div className="grid grid-cols-4 lg:grid-cols-4 gap-3 lg:gap-4 h-[calc(100%-4rem)] place-items-center">
+                      {proj.projectIcons.map((tech) => (
+                        <div
+                          key={tech.name}
+                          className="tech-grid-icon flex flex-col items-center justify-center"
+                        >
+                          <div className="p-2 lg:p-3 rounded-full border border-gray-700 hover:border-white hover:bg-black-50 transition-all duration-300">
+                            <img
+                              src={tech.image}
+                              alt={`${tech.name} image`}
+                              className="size-7 sm:size-8 lg:size-9"
+                            />
+                          </div>
+                          <span className="text-xs lg:text-sm mt-2 text-white/80 font-medium">
+                            {tech.name}
+                          </span>
+                        </div>
                       ))}
                     </div>
                   </div>
-                  {/* OVERLAY-INFO ON HOVER */}
-                  <div
-                    className={`transition-transform duration-300 border-2 opacity-0 view-info-div`}
-                  >
-                    {/* OVERLAY-INFO WITH BUTTON */}
-                    {/* <div
-                onClick={() => setInfoBox1((prev) => !prev)}
-                className={`${
-                  !infoBox1 && "-translate-x-[100%]"
-                } cursor-pointer transition-transform duration-300 ${
-                  hovered1 && "translate-x-0"
-                } view-info-div`}
-                > */}
-                    {infoBox1 ? (
-                      <MdKeyboardArrowDown size={24} />
-                    ) : (
-                      <MdKeyboardArrowUp
-                        className="mt-1"
-                        // className={`mt-1 ${"animate-bounce"}`}
-                        size={24}
-                      />
-                    )}
-                  </div>
                 </div>
-              </div>
-
-              {/* THUMBNAIL CONTENTS */}
-              <div className="thumbnail-img-wrapper">
-                <img
-                  className="thumbnail-img"
-                  src={domProjects.project1.thumbnail}
-                  alt="Planit-webapp"
-                />
-              </div>
-
-              {/* TOP CORNER ICONS */}
-              <BentoLink
-                gitlink={domProjects.glink}
-                github={domProjects.project1.link.githubLink}
-                demo={domProjects.project1.link.demoLink}
-                playVidIcon={checkMobileProjNames}
-                hover={hovered1}
-              />
-            </div>
-          </div>
-          {/* BOTTOM */}
-          <div className="project-list-wrapper">
-            {/* SECOND PROJECT */}
-            <div ref={project2Ref} className="project w-full overflow-hidden">
-              <div
-                onMouseEnter={() => setHovered2(true)}
-                onMouseLeave={() => setHovered2(false)}
-                className="image-wrapper-bottom relative group"
-              >
-                {/* OVERLAY-INFO ON HOVER */}
-                <div
-                  className={`top-text-content-bottom ${
-                    hovered2 ? "translate-x-0" : "-translate-x-[100%]"
-                  }`}
-                >
-                  {/* OVERLAY-INFO WITH BUTTON */}
-                  {/* <div
-                  className={`top-text-content-bottom ${
-                  infoBox2 ? "translate-x-0" : "-translate-x-[100%]"
-                  }`}
-                  > */}
-                  <div className="info-container-bottom flex flex-row">
-                    <div className="h-full p-6">
-                      <div className="flex flex-col items-start px-0 pb-5 pt-2">
-                        <div className="flex gap-6 items-center">
-                          <h2 className="text-2xl font-bold">
-                            {domProjects.project2.title}
-                          </h2>
-                        </div>
-
-                        <p className="text-gray-400 mt-2 md:text-base">
-                          {domProjects.project2.description}
-                        </p>
-                      </div>
-                      <div className="flex h-[50%] overflow-auto scrollbar-thin flex-wrap w-full flex-row gap-x-6 gap-y-4">
-                        {domProjects.project2.projectIcons.map((proj) => (
-                          <ProjectIcons
-                            key={proj.name}
-                            name={proj.name}
-                            image={proj.image}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    {/* OVERLAY-INFO ON HOVER */}
-                    <div
-                      className={`transition-transform duration-300 opacity-0 view-info-div-bottom`}
-                    >
-                      {/* OVERLAY-INFO WITH BUTTON */}
-                      {/* <div
-                      onClick={() => setInfoBox2((prev) => !prev)}
-                      className={`${
-                      !infoBox2 && "-translate-x-[100%]"
-                      } cursor-pointer transition-transform duration-300 ${
-                      hovered2 && "translate-x-0"
-                      } view-info-div-bottom`}
-                      > */}
-                      {infoBox2 ? (
-                        <MdKeyboardArrowDown size={24} />
-                      ) : (
-                        <MdKeyboardArrowUp
-                          className="mt-1"
-                          // className={`mt-1 ${"animate-bounce"}`}
-                          size={24}
-                        />
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                {/* THUMBNAIL CONTENTS */}
-                <div className="thumbnail-img-wrapper">
-                  <img
-                    className="thumbnail-img"
-                    src={domProjects.project2.thumbnail}
-                    alt="Planit-webapp"
-                  />
-                </div>
-                {/* TOP CORNER ICONS */}
-                <BentoLink
-                  gitlink={domProjects.glink}
-                  github={domProjects.project2.link.githubLink}
-                  demo={domProjects.project2.link.demoLink}
-                  playVidIcon={checkMobileProjNames}
-                  hover={hovered2}
-                />
-              </div>
-            </div>
-            {/* THIRD PROJECT */}
-            <div
-              ref={project3Ref}
-              className="project w-full overflow-hidden h-full"
-            >
-              <div
-                onMouseEnter={() => setHovered3(true)}
-                onMouseLeave={() => setHovered3(false)}
-                className="image-wrapper-bottom overflow-hidden relative group"
-              >
-                {/* OVERLAY-INFO ON HOVER */}
-                <div
-                  className={`top-text-content-bottom ${
-                    hovered3 ? "translate-x-0" : "-translate-x-[100%]"
-                  }`}
-                >
-                  {/* OVERLAY-INFO WITH BUTTON */}
-                  {/* <div
-              className={`top-text-content-bottom ${
-                infoBox3 ? "translate-x-0" : "-translate-x-[100%]"
-              }`}
-            > */}
-                  <div className="info-container-bottom flex flex-row">
-                    <div className="h-full p-6">
-                      <div className="flex flex-col items-start px-0 pb-5 pt-2">
-                        <div className="flex gap-6 items-center">
-                          <h2 className="text-2xl font-bold">
-                            {domProjects.project3.title}
-                          </h2>
-                        </div>
-
-                        <p className="text-gray-400 mt-2 md:text-base">
-                          {domProjects.project3.description}
-                        </p>
-                      </div>
-                      <div className="flex h-[50%] overflow-auto scrollbar-thin flex-wrap w-full flex-row gap-x-6 gap-y-4">
-                        {domProjects.project3.projectIcons.map((proj) => (
-                          <ProjectIcons
-                            key={proj.name}
-                            name={proj.name}
-                            image={proj.image}
-                          />
-                        ))}
-                      </div>
-                    </div>
-                    {/* OVERLAY-INFO ON HOVER */}
-                    <div
-                      className={`transition-transform duration-300 opacity-0 view-info-div-bottom`}
-                    >
-                      {/* OVERLAY-INFO WITH BUTTON */}
-                      {/* <div
-                  onClick={() => setInfoBox3((prev) => !prev)}
-                  className={`${
-                    !infoBox3 && "-translate-x-[100%]"
-                  } cursor-pointer transition-transform duration-300 ${
-                    hovered3 && "translate-x-0"
-                  } view-info-div-bottom`}
-                  > */}
-                      {infoBox3 ? (
-                        <MdKeyboardArrowDown size={24} />
-                      ) : (
-                        <MdKeyboardArrowUp
-                          className="mt-1"
-                          // className={`mt-1 ${"animate-bounce"}`}
-                          size={24}
-                        />
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                {/* THUMBNAIL CONTENTS */}
-                <div className="thumbnail-img-wrapper">
-                  <img
-                    className="thumbnail-img"
-                    src={domProjects.project3.thumbnail}
-                    alt="Planit-webapp"
-                  />
-                </div>
-                {/* TOP CORNER ICONS */}
-                <BentoLink
-                  gitlink={domProjects.glink}
-                  github={domProjects.project3.link.githubLink}
-                  demo={domProjects.project3.link.demoLink}
-                  playVidIcon={checkMobileProjNames}
-                  hover={hovered3}
-                />
               </div>
             </div>
           </div>
+          <div
+            className={`${ind === 0 && "w-full mt-12 bg-white-50/15 h-[0.03rem]"}`}
+          />
         </div>
       ))}
-    </>
+    </div>
+  ) : (
+    <div className="flex flex-col gap-10">
+      {chosenDomProj.map((proj, ind) => (
+        <div className="w-full">
+          <div>
+            <div className="flex justify-between items-end mb-3">
+              <h2 className="text-lg md:text-2xl min-w-fit font-bold">
+                {proj.title}
+              </h2>
+              {/* <div className="w-full mx-2 mb-1 h-[0.03rem] bg-white-50/25" /> */}
+              <div className=" flex items-center justify-center gap-6 -mb-1">
+                {domainType !== "design" && (
+                  <a
+                    className={`cursor-pointer relative overflow-hidden group text-white text-xl flex gap-1 items-center justify-center`}
+                    href={proj.link.githubLink}
+                    target="_blank"
+                  >
+                    <p className="text-base md:text-xl ml-0">Github</p>
+
+                    <FaArrowUp className="rotate-45" size={16} />
+                    <div className="w-[100%] absolute left-0 bottom-0 h-[0.1rem] bg-white -translate-x-[102%] group-hover:translate-x-0 transition-transform duration-200"></div>
+                  </a>
+                )}
+                <a
+                  className={`cursor-pointer relative overflow-hidden group text-white text-xl flex gap-1 items-center justify-center`}
+                  href={proj.link.demoLink}
+                  target="_blank"
+                >
+                  <p className="text-base md:text-xl ml-0">Demo</p>
+
+                  <FaArrowUp className="rotate-45" size={16} />
+                  <div className="w-[100%] absolute left-0 bottom-0 h-[0.1rem] bg-white -translate-x-[102%] group-hover:translate-x-0 transition-transform duration-200"></div>
+                </a>
+              </div>
+            </div>
+            <div>
+              {/* <div className="bg-yellow-400 sm:bg-red-400 md:bg-green-400 lg:bg-blue-500 xl:bg-white-50 grid grid-cols-2 grid-rows-4 lg:grid-cols-3 lg:grid-rows-3 gap-2 max-h-[90vh]"> */}
+              <div className="grid grid-cols-2 grid-rows-4 lg:grid-cols-3 lg:grid-rows-3 gap-2 max-h-[90vh]">
+                <div className="col-span-2 row-span-1 sm:row-span-2 lg:col-span-2 lg:row-span-2 first-project-wrapper">
+                  <div className="thumbnail-img-wrapper bg-black-50 bento-radius">
+                    <img
+                      className="thumbnail-img"
+                      src={proj.thumbnail}
+                      alt={`${proj.title} thumbnail image`}
+                    />
+                  </div>
+                </div>
+                <div className="row-start-2 row-span-1 col-span-2 sm:row-start-3 sm:col-span-1 sm:col-start-2 lg:row-start-3 lg:col-start-1 lg:col-span-1 bg-black-50 p-5 bento-radius">
+                  <p className="text-base lg:text-lg text-white-50">
+                    {proj.description}
+                  </p>
+                </div>
+
+                {/* half image */}
+                <div className=" overflow-hidden row-start-3 gap-0 row-span-1 col-span-1 sm:row-start-4 sm:col-span-1 lg:row-span-2 lg:col-start-3 lg:row-start-2 flex justify-center items-center bg-black-50 relative bento-radius">
+                  <img
+                    className="absolute top-10 left-0 scale-[175%] md:top-0 md:scale-[100%] lg:scale-[200%] lg:top-24 lg:left-0 xl:scale-[130%] xl:top-5"
+                    src={proj.image}
+                    alt={`${proj.title} image`}
+                  />
+                  <div className="absolute inset-0 bg-white/5 z-10"></div>
+                </div>
+
+                <div className="row-start-4 row-span-1 col-span-2 sm:row-start-3 sm:col-span-1 lg:col-start-3 lg:row-start-1 bg-black-50  flex items-center justify-center bento-radius">
+                  <img
+                    className="w-[70%]"
+                    src={proj.logo}
+                    alt={`${proj.title} logo image`}
+                  />
+                </div>
+                <div className="row-start-3 col-start-2 row-span-1 col-span-1 sm:row-start-4 lg:row-start-3 lg:col-start-2 bg-black-50 relative overflow-hidden bento-radius">
+                  <div className="relative w-full h-full p-4 overflow-hidden">
+                    <h3 className="text-lg md:text-xl font-bold text-white text-center mb-6">
+                      Tech Stack Used
+                    </h3>
+
+                    {/* 3x3 or 4x3 Grid */}
+                    <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-4  gap-4 h-[calc(100%-4rem)] place-items-center">
+                      {proj.projectIcons.map((tech) => (
+                        <div
+                          key={tech.name}
+                          className="tech-grid-icon flex flex-col items-center justify-center"
+                        >
+                          <div className="p-2 sm:p-3 rounded-full border border-gray-700 hover:border-white hover:bg-black-50 transition-all duration-300">
+                            <img
+                              src={tech.image}
+                              alt={`${tech.name} image`}
+                              className="size-6 sm:size-7 lg:size-9"
+                            />
+                          </div>
+                          <span className="sm:whitespace-nowrap text-xs lg:text-sm mt-2 text-center text-white/80 font-medium">
+                            {tech.name}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            className={`${ind === 0 && "w-full mt-12 bg-white-50/15 h-[0.03rem]"}`}
+          />
+        </div>
+      ))}
+    </div>
   );
 };
 

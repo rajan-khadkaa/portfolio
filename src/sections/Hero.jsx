@@ -7,6 +7,8 @@ import gsap from "gsap";
 import HeroHead from "../components/HeroModels/HeroHead.jsx";
 import HeroTexts from "../components/HeroTexts.jsx";
 import SecondaryButton from "../components/SecondaryButton.jsx";
+import PrimaryButton from "../components/PrimaryButton.jsx";
+import ThemeToggler from "../components/ThemeToggler.jsx";
 
 const Hero = () => {
   useGSAP(() => {
@@ -29,6 +31,16 @@ const Hero = () => {
     );
   });
 
+  const handleClick = () => {
+    const projSection = document.getElementById("projects");
+    if (projSection) {
+      projSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   return (
     <section id="home" className="hero-wrapper hero-padding">
       {/* <section id="home" className="relative overflow-hidden"> */}
@@ -44,7 +56,7 @@ const Hero = () => {
               Hi, I'm Rajan,
               <br />A Software Developer (React & React Native)
             </p> */}
-            <div className="flex flex-col gap-1 text-white-50 md:text-xl relative z-10 pointer-events-none">
+            <div className="flex flex-col gap-2 text-white-50 md:text-xl relative z-10 pointer-events-none">
               <span>Hi, I'm Rajan,</span>
               <span>A Software Developer (React & React Native)</span>
             </div>
@@ -77,15 +89,33 @@ const Hero = () => {
               {/* <h1>that Deliver Results</h1> */}
             </div>
 
+            {/* <div className="flex-col lg:mt-0 mt-6 py-[3px] items-center gap-3"> */}
             <div className="flex lg:mt-0 mt-6 py-[3px] items-center md:h-16 h-16 gap-3">
-              <Button
+              {/* <Button
                 text="See My Work"
                 className="md:w-80 w-50"
                 // className="md:w-80 w-60 mt-5 lg:mt-auto"
                 id="counter"
+              /> */}
+
+              <PrimaryButton
+                text="See My Work"
+                CustomStyle="text-base w-[40%] lg:w-64"
+                btnClick={handleClick}
+                blurShape1="-right-[150%] -translate-x-1/2 bottom-0"
+                blurShape2="-left-[60%] -translate-x-1/2 top-[200%] -translate-y-1/2"
+                ArrowStyle="-translate-y-[200%]
+            group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-[10%] group-hover:animate-bounce"
               />
-              <SecondaryButton text="Resume" />
+              {/* <SecondaryButton className="mt-3" text="View Resume" /> */}
+              <SecondaryButton
+                className="w-fit"
+                text="View Resume"
+                icon={true}
+              />
+              {/* <ThemeToggler /> */}
             </div>
+            {/* <div className="w-10 h-5 bg-yellow-400 sm:bg-red-400 md:bg-green-400 lg:bg-blue-500 xl:bg-white-50" /> */}
           </div>
         </header>
       </div>

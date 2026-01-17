@@ -23,7 +23,7 @@ const Skills = () => {
         left: calcLeft + "px",
         width: cardInfo.width + "px",
         height: cardInfo.height + "px",
-        backgroundColor: highlightColors[indexedCard],
+        // backgroundColor: highlightColors[indexedCard],
         // duration: 0,
         duration: 0.2,
         opacity: 1,
@@ -98,7 +98,7 @@ const Skills = () => {
           <div
             ref={highlightRef}
             // className="z-0 skill-highlight absolute top-0 left-0 pointer-events-none transition-all duration-300 ease-in-out"
-            className="z-0 skill-highlight absolute top-0 left-0 pointer-events-none"
+            className="z-0 skill-highlight blue-gradient absolute top-0 left-0 pointer-events-none"
           ></div>
         </div>
       </div>

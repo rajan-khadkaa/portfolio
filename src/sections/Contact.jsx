@@ -3,6 +3,8 @@ import TitleHeader from "../components/TitleHeader";
 import profImage from "/images/other-images/profile.png";
 import { EnvelopeIcon, HomeIcon } from "@heroicons/react/24/outline";
 import emailjs from "@emailjs/browser";
+import SecondaryButton from "../components/SecondaryButton";
+import PrimaryButton from "../components/PrimaryButton";
 
 const Contact = () => {
   const formRef = useRef(null);
@@ -53,7 +55,7 @@ const Contact = () => {
         />
         <div className="grid-12-cols">
           <div className="xl:col-span-6 ">
-            <div className="flex-left card-border rounded-xl p-6 md:p-10">
+            <div className="flex-left card-border rounded-card p-6 md:p-10">
               <h1 className="font-semibold mt-2 lg:mt-0 text-2xl md:text-3xl">
                 More about me
               </h1>
@@ -84,25 +86,30 @@ const Contact = () => {
                   <p className="">rajankhadkaa0809@gmail.com</p>
                 </div>
               </div>
-              <button className="w-full mt-6" onClick={handleEmailCopy}>
+              {/* <button className="w-full mt-6" onClick={handleEmailCopy}>
                 <div className="px-4 py-4 rounded-lg border-2 border-black-200  bg-none hover:bg-black-200 transition-colors duration-200 flex justify-center items-center relative cursor-pointer overflow-hidden group ">
-                  {/* <div className="bg-circle" /> */}
                   <p className="text">
                     {copied ? "Email Copied!" : "Copy Email"}
                   </p>
-                  {/* <div className="arrow-wrapper">
-                    <img
-                      src="/images/arrow-down.svg"
-                      //   className="-rotate-90"
-                      alt="arrow"
-                    />
-                  </div> */}
+                  // <div className="arrow-wrapper">
+                  //   <img
+                  //     src="/images/arrow-down.svg"
+                  //     //   className="-rotate-90"
+                  //     alt="arrow"
+                  //   />
+                  // </div>
                 </div>
-              </button>
+              </button> */}
+              <SecondaryButton
+                text={copied ? "Email Copied!" : "Copy Email"}
+                className="w-full mt-4"
+                btnClick={handleEmailCopy}
+                icon={false}
+              />
             </div>
           </div>
           <div className="xl:col-span-6">
-            <div className="flex-center card-border rounded-xl p-6 md:p-10">
+            <div className="flex-center card-border rounded-card p-6 md:p-10">
               <form
                 ref={formRef}
                 onSubmit={handleSubmit}
@@ -111,7 +118,7 @@ const Contact = () => {
                 <div>
                   <label htmlFor="email">Your Email</label>
                   <input
-                    className="placeholder-zinc-600 text-base bg-zinc-900"
+                    className="placeholder-zinc-600 rounded-field text-base bg-zinc-900"
                     type="email"
                     id="email"
                     name="email"
@@ -125,7 +132,7 @@ const Contact = () => {
                 <div>
                   <label htmlFor="message">Your Message</label>
                   <textarea
-                    className="placeholder-zinc-600 text-base bg-zinc-900"
+                    className="placeholder-zinc-600 rounded-field text-base bg-zinc-900"
                     id="message"
                     name="message"
                     value={form.message}
@@ -136,7 +143,7 @@ const Contact = () => {
                   />
                 </div>
 
-                <button type="submit" disabled={loading}>
+                {/* <button type="submit" disabled={loading}>
                   <div className="cta-button group">
                     <div className="bg-circle" />
                     <p className="text">
@@ -150,7 +157,15 @@ const Contact = () => {
                       />
                     </div>
                   </div>
-                </button>
+                </button> */}
+                <PrimaryButton
+                  text={loading ? "Sending..." : "Send Message"}
+                  ArrowStyle="ml-2 -rotate-90
+            group-hover:opacity-100 group-hover:scale-100 group-hover:translate-y-[10%] group-hover:animate-bounce"
+                  chkBtnDisabled={loading}
+                  blurShape1="-right-[70%] -translate-x-1/2 bottom-0"
+                  blurShape2="-left-[27%] -translate-x-1/2 top-[200%] -translate-y-1/2"
+                />
               </form>
             </div>
           </div>
