@@ -12,7 +12,6 @@ import ThemeToggler from "../components/ThemeToggler.jsx";
 
 const Hero = () => {
   useGSAP(() => {
-    console.log("Viewport width:", window.innerWidth);
     gsap.fromTo(
       // ".hero-text",
       ".text-slide",

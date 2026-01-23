@@ -89,7 +89,7 @@ const HeroHead = () => {
         // frameloop={isMobile || isTabletPortrait ? "always" : "demand"} //this is for vr-headset (in small screen it needs to rotate so it is set always but in large screen it should only rotate when user interact so 'demand')
         // camera={{ position: [0, 0, 0], fov: 10 }}
         camera={{ position: [0, 0, 4], fov: 35 }}
-        style={isMobile || isTabletPortrait ? { pointerEvents: "none" } : {}}
+        style={isMobile || isTabletPortrait ? { pointerEvents: "none" } : {}} // user will interact only in pc
       >
         <Preload all />
         {/* Lighting */}
@@ -117,7 +117,8 @@ const HeroHead = () => {
           // enabled={!isMobile && !isTabletPortrait} //can't rotate in mobile and tablets
           autoRotate={true} //rotates in pc as well
           // autoRotate={isMobile || isTabletPortrait} //rotates only in mobile and tablets
-          autoRotateSpeed={1.0} //rotates in same speed in all devices
+          // autoRotateSpeed={1.0} //rotates in same speed in all devices
+          autoRotateSpeed={isMobile || isTabletPortrait ? 3.0 : 1.0} //rotates slow for pc and faster for mobiles and tablets
           // autoRotateSpeed={isMobile || isTabletPortrait ? 5.0 : 1.0} //rotates slow for pc and faster for mobiles and tablets
           // autoRotateSpeed={5.0} //rotates faster
           enablePan={false}

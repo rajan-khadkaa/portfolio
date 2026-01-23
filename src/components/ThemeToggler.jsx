@@ -42,13 +42,11 @@ const ThemeToggler = () => {
       setIsDark(false);
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
-      console.log("theme is now set to light mode");
     } else {
       // if it is Currently LIGHT then switch to DARK
       setIsDark(true);
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
-      console.log("theme is now set to dark mode");
     }
   };
 

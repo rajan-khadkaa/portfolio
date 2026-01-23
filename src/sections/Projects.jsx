@@ -62,7 +62,7 @@ const Projects = () => {
                 item.domain === domain ? "border-zinc-700" : "border-zinc-900"
               } border-[1.5px] bg-zinc-900 p-10 flex flex-col justify-center rounded-2xl`}
             > */}
-              <div className="text-black-400 dark:text-white-400 text-lg mb-4">
+              <div className="text-black-400 dark:text-white-400 text-base lg:text-lg mb-4">
                 Let's see
               </div>
               <div className="counter-number text-black-200 dark:text-white-200 text-2xl lg:text-3xl font-bold mb-2">
