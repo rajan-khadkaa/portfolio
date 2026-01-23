@@ -5,26 +5,26 @@ const SecondaryButton = ({ text, className, btnClick, icon }) => {
   return (
     <button
       onClick={btnClick}
-      className={`${className} group overflow-hidden border border-white/35 text-base flex items-center justify-center h-full min-w-fit whitespace-nowrap`}
+      className={`${className} group overflow-hidden border border-black-900 dark:border-white-900 text-base flex items-center justify-center h-full min-w-fit whitespace-nowrap`}
     >
       <a
-        href={icon && "/Rajan-Khadka-Resume.pdf"}
+        href={icon ? "/Rajan-Khadka-Resume.pdf" : ""}
         target="_blank"
-        className="transition-colors font-medium duration-300 cursor-pointer bg-none hover:bg-black-200 px-4 md:px-6 py-4 h-full w-full flex items-center justify-center"
+        className="transition-colors font-medium duration-300 cursor-pointer bg-none text-black-100 dark:text-white-100 hover:bg-white-100 dark:hover:bg-black-100 px-4 md:px-6 py-4 h-full w-full flex items-center justify-center"
       >
         {text}
       </a>
 
       {icon && (
-        <span className="w-1 h-6 text-white/50 text-xs group-hover:text-black bg-white/50 group-hover:bg-black"></span>
+        <span className="w-1 h-6 text-xs group-hover:text-white dark:group-hover:text-black bg-white-200 dark:bg-black-400 group-hover:bg-white dark:group-hover:bg-black"></span>
       )}
       {icon && (
         <a
           href="/Rajan-Khadka-Resume.pdf"
           download="Rajan-Khadka-Resume.pdf"
-          className="transition-colors flex items-center justify-center size-full duration-300 cursor-pointer bg-none hover:bg-black-200 rotate-0 px-4 py-4"
+          className="transition-colors text-black-400 dark:text-white-400 flex items-center justify-center size-full duration-300 cursor-pointer bg-none hover:bg-white-100 dark:hover:bg-black-200 rotate-0 px-4 py-4"
         >
-          <HiOutlineDownload size={22} />
+          <HiOutlineDownload size={21} />
         </a>
       )}
     </button>

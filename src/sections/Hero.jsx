@@ -27,7 +27,7 @@ const Hero = () => {
         duration: 3,
         // ease: "none",
         ease: "power2.inOut",
-      }
+      },
     );
   });
 
@@ -42,7 +42,10 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="hero-wrapper hero-padding">
+    <section
+      id="home"
+      className="hero-wrapper bg-white dark:bg-black hero-padding"
+    >
       {/* <section id="home" className="relative overflow-hidden"> */}
       <div className="absolute top-0 left-0 z-10">
         {/* <img src="/images/bg.png" alt="" /> */}
@@ -56,11 +59,11 @@ const Hero = () => {
               Hi, I'm Rajan,
               <br />A Software Developer (React & React Native)
             </p> */}
-            <div className="flex flex-col gap-2 text-white-50 md:text-xl relative z-10 pointer-events-none">
+            <div className="flex flex-col gap-2 text-black-400 dark:text-white-400 md:text-xl relative z-10 pointer-events-none">
               <span>Hi, I'm Rajan,</span>
               <span>A Software Developer (React & React Native)</span>
             </div>
-            <div className="hero-text">
+            <div className="hero-text text-black-200 dark:text-white-200">
               <div className="flex flex-row flex-wrap items-center">
                 <h1 className="mr-5">I build</h1>
                 <div className="flex flex-row -ml-10 items-center">
@@ -113,7 +116,6 @@ const Hero = () => {
                 text="View Resume"
                 icon={true}
               />
-              {/* <ThemeToggler /> */}
             </div>
             {/* <div className="w-10 h-5 bg-yellow-400 sm:bg-red-400 md:bg-green-400 lg:bg-blue-500 xl:bg-white-50" /> */}
           </div>

@@ -36,7 +36,7 @@ const Contact = () => {
         import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
         formRef.current,
-        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
       );
       setForm({ email: "", message: "" });
       alert("Email sent successfully.");
@@ -47,20 +47,23 @@ const Contact = () => {
     }
   };
   return (
-    <section id="contact" className="flex-center section-padding">
+    <section
+      id="contact"
+      className="bg-white dark:bg-black flex-center section-padding"
+    >
       <div className="w-full h-full">
         <TitleHeader
           title="Let’s Connect"
           sub="Have questions or ideas? Let’s talk!"
         />
         <div className="grid-12-cols">
-          <div className="xl:col-span-6 ">
+          <div className="xl:col-span-6 bg-white-50 dark:bg-black-50">
             <div className="flex-left card-border rounded-card p-6 md:p-10">
-              <h1 className="font-semibold mt-2 lg:mt-0 text-2xl md:text-3xl">
+              <h1 className="font-semibold text-black-200 dark:text-white-200 mt-2 lg:mt-0 text-2xl md:text-3xl">
                 More about me
               </h1>
               <div className="flex flex-col text-lg">
-                <p className=" mt-6 text-gray-400 ">
+                <p className=" mt-6 text-black-400 dark:text-white-400 ">
                   {/* <p className="text-lg max-w-[290px] mt-6 text-gray-400"> */}
                   I’m a dedicated software developer with a focus on React and
                   React Native, currently seeking internship where I can grow,
@@ -78,7 +81,7 @@ const Contact = () => {
                     alt="Image"
                   />
                 </div> */}
-                <div className="flex gap-2 mt-8 items-center text-gray-300">
+                <div className="flex gap-2 mt-8 items-center font-medium text-black-200 dark:text-white-200">
                   <EnvelopeIcon
                     style={{ height: 19, width: 19 }}
                     className="sm:size-[18px]"
@@ -108,7 +111,7 @@ const Contact = () => {
               />
             </div>
           </div>
-          <div className="xl:col-span-6">
+          <div className="xl:col-span-6 bg-white-50 dark:bg-black-50">
             <div className="flex-center card-border rounded-card p-6 md:p-10">
               <form
                 ref={formRef}
@@ -116,9 +119,11 @@ const Contact = () => {
                 className="w-full flex flex-col gap-7"
               >
                 <div>
-                  <label htmlFor="email">Your Email</label>
+                  <label className="label-style" htmlFor="email">
+                    Email
+                  </label>
                   <input
-                    className="placeholder-zinc-600 rounded-field text-base bg-zinc-900"
+                    className="field-style"
                     type="email"
                     id="email"
                     name="email"
@@ -130,9 +135,11 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="message">Your Message</label>
+                  <label className="label-style" htmlFor="message">
+                    Message
+                  </label>
                   <textarea
-                    className="placeholder-zinc-600 rounded-field text-base bg-zinc-900"
+                    className="field-style"
                     id="message"
                     name="message"
                     value={form.message}

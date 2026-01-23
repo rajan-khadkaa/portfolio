@@ -57,9 +57,9 @@ export const workProcess = [
         color: "#61DAFB",
       },
       {
-        path: "/images/tech-logo/original/nextjs.svg",
+        path: "/images/tech-logo/original/nextjs-modified.svg",
         name: "Next.js",
-        color: "#FFFFFF",
+        color: "#EEEEEE",
       },
       {
         path: "/images/tech-logo/original/tailwind.svg",
@@ -88,9 +88,9 @@ export const workProcess = [
         color: "#28C76F",
       },
       {
-        path: "/images/tech-logo/original/nextjs.svg",
+        path: "/images/tech-logo/original/nextjs-modified.svg",
         name: "Next.js (API)",
-        color: "#FFFFFF",
+        color: "#EEEEEE",
       },
     ],
     processWork: [
@@ -140,7 +140,7 @@ const socialImgs = [
     url: "https://github.com/rajan-khadkaa",
   },
   {
-    name: "linkedin",
+    name: "Linkedin",
     imgPath: "/images/media-logo/rounded/linkedin.svg",
     url: "https://www.linkedin.com/in/rajan-khadka-106868268/",
   },
@@ -149,25 +149,71 @@ const socialImgs = [
     imgPath: "/images/media-logo/rounded/whatsapp.svg",
     url: "https://wa.me/+9779814364007?text=Hello%20Rajan,%20Let%27s%20work%20together.",
   },
-  {
-    name: "Telegram",
-    imgPath: "/images/media-logo/rounded/telegram.svg",
-    url: "https://t.me/rajankhadkaa?text=Hello%20Rajan,%20Let%27s%20work%20together.",
-  },
+  // {
+  //   name: "Telegram",
+  //   imgPath: "/images/media-logo/rounded/telegram.svg",
+  //   url: "https://t.me/rajankhadkaa?text=Hello%20Rajan,%20Let%27s%20work%20together.",
+  // },
 ];
 
 const skillListTop = [
   { name: "React Native", path: "/images/tech-logo/plain/react.svg" },
   { name: "Node.js", path: "/images/tech-logo/plain/nodejs.svg" },
   { name: "Next.js", path: "/images/tech-logo/plain/nextjs.svg" },
-  { name: "Three.js", path: "/images/tech-logo/plain/threejs.svg" },
+  { name: "Typescript", path: "/images/tech-logo/plain/typescript.svg" },
+  { name: "PostgreSQL", path: "/images/tech-logo/plain/postgres.svg" },
+  { name: "MongoDB", path: "/images/tech-logo/plain/mongodb.svg" },
 ];
 const skillListBottom = [
+  { name: "Tailwind CSS", path: "/images/tech-logo/plain/tailwind.svg" },
+  { name: "GSAP", path: "/images/tech-logo/plain/gsap.svg" },
+  { name: "Three.js", path: "/images/tech-logo/plain/threejs.svg" },
+  { name: "Git", path: "/images/tech-logo/plain/git.svg" },
+  { name: "Docker (Basics)", path: "/images/tech-logo/plain/docker.svg" },
+  { name: "Figma", path: "/images/tech-logo/plain/figma.svg" },
+];
+
+const skillListDark = [
+  { name: "React Native", path: "/images/tech-logo/plain/react.svg" },
+  { name: "Node.js", path: "/images/tech-logo/plain/nodejs.svg" },
+  { name: "Next.js", path: "/images/tech-logo/plain/nextjs.svg" },
+  { name: "TypeScript", path: "/images/tech-logo/plain/typescript.svg" },
+  { name: "PostgreSQL", path: "/images/tech-logo/plain/postgres.svg" },
   { name: "MongoDB", path: "/images/tech-logo/plain/mongodb.svg" },
   { name: "Tailwind CSS", path: "/images/tech-logo/plain/tailwind.svg" },
   { name: "GSAP", path: "/images/tech-logo/plain/gsap.svg" },
+  { name: "Three.js", path: "/images/tech-logo/plain/threejs.svg" },
   { name: "Git", path: "/images/tech-logo/plain/git.svg" },
+  { name: "Docker (Basics)", path: "/images/tech-logo/plain/docker.svg" },
   { name: "Figma", path: "/images/tech-logo/plain/figma.svg" },
+];
+const skillListLight = [
+  { name: "React Native", path: "/images/tech-logo/dark/react.svg" },
+  { name: "Node.js", path: "/images/tech-logo/dark/nodejs.svg" },
+  { name: "Next.js", path: "/images/tech-logo/dark/nextjs.svg" },
+  { name: "TypeScript", path: "/images/tech-logo/dark/typescript.svg" },
+  { name: "PostgreSQL", path: "/images/tech-logo/dark/postgres.svg" },
+  { name: "MongoDB", path: "/images/tech-logo/dark/mongodb.svg" },
+  { name: "Tailwind CSS", path: "/images/tech-logo/dark/tailwind.svg" },
+  { name: "GSAP", path: "/images/tech-logo/dark/gsap.svg" },
+  { name: "Three.js", path: "/images/tech-logo/dark/threejs.svg" },
+  { name: "Git", path: "/images/tech-logo/dark/git.svg" },
+  { name: "Docker (Basics)", path: "/images/tech-logo/dark/docker.svg" },
+  { name: "Figma", path: "/images/tech-logo/dark/figma.svg" },
+];
+const skillListOriginal = [
+  { name: "React Native", path: "/images/tech-logo/original/react.svg" },
+  { name: "Node.js", path: "/images/tech-logo/original/nodejs.svg" },
+  { name: "Next.js", path: "/images/tech-logo/original/nextjs-modified.svg" },
+  { name: "TypeScript", path: "/images/tech-logo/original/typescript.svg" },
+  { name: "PostgreSQL", path: "/images/tech-logo/original/postgres.svg" },
+  { name: "MongoDB", path: "/images/tech-logo/original/mongodb.svg" },
+  { name: "Tailwind CSS", path: "/images/tech-logo/original/tailwind.svg" },
+  { name: "GSAP", path: "/images/tech-logo/original/gsap.svg" },
+  { name: "Three.js", path: "/images/tech-logo/original/threejs-modified.svg" },
+  { name: "Git", path: "/images/tech-logo/original/git.svg" },
+  { name: "Docker (Basics)", path: "/images/tech-logo/original/docker.svg" },
+  { name: "Figma", path: "/images/tech-logo/original/figma.svg" },
 ];
 
 const highlightColors = [
@@ -185,7 +231,7 @@ const highlightColors = [
 const webProjects = [
   {
     title: "Planit",
-    logo: "/images/project-logo/planit.svg",
+    logo: "/images/project-logo/planit-modified.svg",
     description:
       "Plan-It is a productivity app to capture ideas, set future goals, and track personal progress. Revisit your saved goals and check off what you’ve accomplished over time.",
     projectIcons: [
@@ -444,6 +490,9 @@ export {
   socialImgs,
   skillListTop,
   skillListBottom,
+  skillListDark,
+  skillListLight,
+  skillListOriginal,
   highlightColors,
   mobProjects,
   webProjects,

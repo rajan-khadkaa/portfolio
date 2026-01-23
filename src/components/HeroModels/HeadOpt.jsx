@@ -8,34 +8,121 @@ Source: https://sketchfab.com/3d-models/cyberpunk-vr-head-rig-dbaf4b552a814f1ea7
 Title: Cyberpunk VR head rig
 */
 
+// import React, { useEffect } from "react";
+// import { useGLTF } from "@react-three/drei";
+
+// export function HeadOpt({ isDark }) {
+//   const { nodes, materials } = useGLTF("/models/headOpt-transformed.glb");
+
+//   useEffect(() => {
+//     Object.values(materials).forEach((mat) => {
+//       if (!mat) return;
+
+//       if (isDark) {
+//         // original cinematic dark look
+//         mat.color.set("#0f0f0f");
+//         mat.roughness = 0.35;
+//         mat.metalness = 0.6;
+//         mat.envMapIntensity = 1.3;
+//       } else {
+//         // light mode but still realistic (not flat)
+//         mat.color.set("#dcdcdc"); // light but not white
+//         mat.roughness = 0.42;
+//         mat.metalness = 0.25;
+//         mat.envMapIntensity = 1.6;
+//       }
+
+//       mat.needsUpdate = true;
+//     });
+//   }, [materials, isDark]);
+
+//   return (
+//     <group dispose={null}>
+//       <mesh
+//         geometry={nodes.Object_4.geometry}
+//         material={materials.PaletteMaterial001}
+//         rotation={[Math.PI / 2, 0, 0]}
+//       />
+//       <mesh
+//         geometry={nodes.Object_10.geometry}
+//         material={materials.PaletteMaterial002}
+//         rotation={[Math.PI / 2, 0, 0]}
+//       />
+//       <mesh
+//         geometry={nodes.Object_16.geometry}
+//         material={materials.PaletteMaterial003}
+//         rotation={[Math.PI / 2, 0, 0]}
+//       />
+//     </group>
+//   );
+// }
+
+// useGLTF.preload("/models/headOpt-transformed.glb");
+
+// import React from "react";
+// import { useGLTF } from "@react-three/drei";
+
+// export function HeadOpt({ isDark }) {
+//   const { nodes, materials } = useGLTF("/models/headOpt-transformed.glb");
+
+//   // Theme-based material override
+//   const lightMaterialProps = {
+//     color: "#555",
+//     roughness: 0.1,
+//     metalness: 0.4,
+//   };
+
+//   const darkMaterialProps = {
+//     color: "#111111",
+//     roughness: 0.4,
+//     metalness: 0.6,
+//   };
+
+//   const matProps = isDark ? darkMaterialProps : lightMaterialProps;
+
+//   return (
+//     <group dispose={null}>
+//       <mesh geometry={nodes.Object_4.geometry} rotation={[Math.PI / 2, 0, 0]}>
+//         <meshStandardMaterial {...matProps} />
+//       </mesh>
+
+//       <mesh geometry={nodes.Object_10.geometry} rotation={[Math.PI / 2, 0, 0]}>
+//         <meshStandardMaterial {...matProps} />
+//       </mesh>
+
+//       <mesh geometry={nodes.Object_16.geometry} rotation={[Math.PI / 2, 0, 0]}>
+//         <meshStandardMaterial {...matProps} />
+//       </mesh>
+//     </group>
+//   );
+// }
+
+// useGLTF.preload("/models/headOpt-transformed.glb");
+
 import React from "react";
 import { useGLTF } from "@react-three/drei";
-
 export function HeadOpt(props) {
   const { nodes, materials } = useGLTF("/models/headOpt-transformed.glb");
   return (
     <group {...props} dispose={null}>
+      {" "}
       <mesh
         geometry={nodes.Object_4.geometry}
         material={materials.PaletteMaterial001}
         rotation={[Math.PI / 2, 0, 0]}
-      />
+      />{" "}
       <mesh
         geometry={nodes.Object_10.geometry}
         material={materials.PaletteMaterial002}
         rotation={[Math.PI / 2, 0, 0]}
-      />
+      />{" "}
       <mesh
         geometry={nodes.Object_16.geometry}
         material={materials.PaletteMaterial003}
         rotation={[Math.PI / 2, 0, 0]}
-      />
-      {/* <mesh
-        geometry={nodes.Object_18.geometry}
-        material={materials.PaletteMaterial004}
-      /> */}
+      />{" "}
+      {/* <mesh geometry={nodes.Object_18.geometry} material={materials.PaletteMaterial004} /> */}{" "}
     </group>
   );
 }
-
 useGLTF.preload("/models/headOpt-transformed.glb");

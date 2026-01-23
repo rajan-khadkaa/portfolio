@@ -69,11 +69,11 @@ const HeroTexts = () => {
   return (
     <div
       ref={parentRef}
-      className={`w-[200px] md:w-[300px] lg:w-[400px]  box-border ml-10 h-[60px] relative overflow-hidden`}
+      className={`bg-white dark:bg-black text-black-200 dark:text-white-200 w-[200px] md:w-[300px] lg:w-[400px]  box-border ml-10 h-[60px] relative overflow-hidden`}
     >
       <div
         ref={childRef1}
-        className={`h-full text-[36px] md:text-[48px] lg:text-[60px]  font-semibold z-20 pointer-events-none flex bg-black -translate-y-[50%] text-white overflow-hidden absolute gap-0 top-0 left-0 `}
+        className={`h-full text-[36px] md:text-[48px] lg:text-[60px]  font-semibold z-30 bg-white dark:bg-black pointer-events-none flex  -translate-y-[50%] overflow-hidden absolute gap-0 top-0 left-0 `}
       >
         <div className="flex translate-y-[50%]">
           {/* <h1
@@ -96,7 +96,7 @@ const HeroTexts = () => {
       </div>
       <div
         ref={childRef2}
-        className={`h-full text-[36px] md:text-[48px] lg:text-[60px] font-semibold z-10 pointer-events-none flex text-white absolute gap-0 right-0 bottom-0 overflow-hidden`}
+        className={`h-full text-[36px] md:text-[48px] lg:text-[60px] font-semibold pointer-events-none flex text-black-200 dark:text-white-200 absolute gap-0 right-0 bottom-0 overflow-hidden`}
       >
         {/* <h1 className={`flex flex-auto w-[200px] lg:w-[400px] justify-baseline items-center`}>
           Mobile Apps

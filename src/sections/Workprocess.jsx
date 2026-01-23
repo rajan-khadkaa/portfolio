@@ -54,7 +54,7 @@ const Workprocess = () => {
       scrollTrigger: {
         trigger: ".timeline",
         start: "top center",
-        end: "70% center",
+        end: "80% center",
         onUpdate: (self) => {
           gsap.to(".timeline", {
             scaleY: 1 - self.progress,
@@ -77,14 +77,15 @@ const Workprocess = () => {
   }, []);
 
   return (
-    <section className="w-full section-padding">
+    <section className="bg-white dark:bg-black w-full section-padding">
       <div className="w-full h-full">
         {/* <div className="w-full h-full md:px-20 px-5"> */}
         <TitleHeader title="How I work" sub="Work Process" />
         <div className="relative">
+          {/* thin horizontal lines between count */}
           <div
             style={{ left: `${timelineLeft}px` }}
-            className="timeline-wrapper translate-x-[24px] md:translate-x-[30px] lg:translate-x-9 absolute top-2 h-[97%] rounded-full mt-4 w-[2px] z-0 bg-gray-500"
+            className="timeline-wrapper translate-x-[24px] md:translate-x-[30px] lg:translate-x-9 absolute top-2 h-[97%] rounded-full mt-4 w-[2px] z-0 bg-gray-100 dark:bg-gray-500"
           />
           <div className="relative z-20 xl:space-y-32 space-y-10 pt-5">
             {workProcess.map((process, index) => (
@@ -100,14 +101,15 @@ const Workprocess = () => {
                         key={img.name}
                       >
                         <div
-                          style={{ border: "2px solid #303030" }}
-                          onMouseEnter={(e) =>
-                            (e.currentTarget.style.borderColor = img.color)
-                          }
-                          onMouseLeave={(e) =>
-                            (e.currentTarget.style.borderColor = "#303030")
-                          }
-                          className="size-14 lg:size-16 overflow-visible p-2  transition-colors duration-300 flex flex-col items-center rounded-full"
+                          // style={{ border: "1.5px solid" }}
+                          // style={{ border: "2px solid #303030" }}
+                          // onMouseEnter={(e) =>
+                          //   (e.currentTarget.style.borderColor = img.color)
+                          // }
+                          // onMouseLeave={(e) =>
+                          //   (e.currentTarget.style.borderColor = "#9f9f9f")
+                          // }
+                          className="size-14 border-[1.5px] border-white-100/70 dark:border-black-100 lg:size-16 overflow-visible p-2  transition-colors duration-300 flex flex-col items-center rounded-full"
                         >
                           <img
                             className="size-full"
@@ -115,7 +117,9 @@ const Workprocess = () => {
                             alt={img.name}
                           />
                         </div>
-                        <p className="text-center w-full">{img.name}</p>
+                        <p className="text-center text-black-200 dark:text-white-200 w-full">
+                          {img.name}
+                        </p>
                       </div>
                     ))}
                   </div>
@@ -125,17 +129,17 @@ const Workprocess = () => {
                     <div className="expText flex xl:gap-20 md:gap-10 gap-5 relative">
                       <div
                         ref={index === 0 ? numRef : null}
-                        className="timeline-logo md:size-18 size-14 flex-none rounded-full flex justify-center items-center bg-black-50 relative z-0 -translate-y-1 -translate-x-4 lg:-translate-x-2 md:-translate-y-5"
+                        className="timeline-logo md:size-18 size-14 flex-none rounded-full flex justify-center items-center bg-white-50 dark:bg-black-50 relative z-0 -translate-y-1 -translate-x-4 lg:-translate-x-2 md:-translate-y-5"
                       >
-                        <p className="text-xl md:text-2xl font-bold">
+                        <p className="text-xl text-black-400 dark:text-white-400 md:text-2xl font-bold">
                           {index + 1}
                         </p>
                       </div>
                       <div className="desc-card">
-                        <h1 className="font-semibold text-2xl lg:text-3xl">
+                        <h1 className="font-semibold text-black-200 dark:text-white-200 text-2xl lg:text-3xl">
                           {process.title}
                         </h1>
-                        <ul className="list-disc ms-5 mt-5 flex flex-col gap-5">
+                        <ul className="list-disc text-black-400 dark:text-white-400 ms-5 mt-5 flex flex-col gap-5">
                           {process.processWork.map((work) => (
                             <li key={work} className="text-lg">
                               {work}
@@ -153,9 +157,9 @@ const Workprocess = () => {
           <div
             ref={timelineWrapperRef}
             style={{ left: `${timelineLeft}px` }}
-            className="timeline-wrapper translate-x-[24px] md:translate-x-[30px] lg:translate-x-10 absolute top-0 h-full z-20"
+            className="timeline-wrapper bg-green-400 translate-x-[24px] md:translate-x-[30px] lg:translate-x-10 absolute top-0 h-full z-20"
           >
-            <div className="timeline absolute bg-black top-0 left-1/2 w-20 md:w-24 h-full z-30 transform -translate-x-1/2" />
+            <div className="timeline absolute  bg-white dark:bg-black top-0 left-1/2 w-20 md:w-24 h-full z-30 transform -translate-x-1/2" />
           </div>
         </div>
       </div>

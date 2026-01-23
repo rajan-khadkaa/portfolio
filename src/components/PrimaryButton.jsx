@@ -14,14 +14,14 @@ const PrimaryButton = ({
     <button
       disabled={chkBtnDisabled}
       onClick={btnClick}
-      className={`${CustomStyle} cursor-pointer relative overflow-hidden p-2 lg:px-8 py-4 flex items-center justify-center gap-1 group bg-white text-black-50 hover:text-white border border-white/25 transition-colors duration-700 hover:bg-black-50`}
+      className={`${CustomStyle} cursor-pointer relative overflow-hidden p-2 lg:px-8 py-4 flex items-center justify-center gap-1 group bg-black dark:bg-white text-white-50 dark:text-black-50 hover:text-black dark:hover:text-white  border border-white-200 dark:border-black-400 transition-colors duration-700 hover:bg-white-100 dark:hover:bg-black-100`}
     >
       {/* Parent container for consistent blur positioning */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* White blur */}
+        {/* White/black blur */}
         <div
           className={` ${blurShape1} blur-lg animate-pulse size-32 md:size-60 absolute rounded-full
-          bg-white/75 transition-all duration-500
+          bg-black dark:bg-white transition-all duration-500
           group-hover:-translate-y-[10%] group-hover:-translate-x-[100%] group-hover:scale-110`}
         />
 

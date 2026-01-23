@@ -39,28 +39,73 @@ body {
   justify-content: center;
   /* border: 1px solid red; */
   overflow-x: hidden;
-  background-color: black;
-  color: white;
+  background-color: white;
+  /* color: white; */
   scroll-behavior: smooth;
   font-family: "Mona Sans", sans-serif;
 }
 
+/* @media (prefers-color-scheme: light) {
+  body {
+    background-color: white;
+  }
+} */
+/* @media (prefers-color-scheme: dark) {
+  body {
+    background-color: black;
+  }
+} */
+
 section {
   /* width: 100dvw; */
   max-width: 1400px;
+  /* padding: 0; */
+  /* margin: 0; */
+  /* color: #e0e0e0; */
+
+  /* --color-white-50: #f5f5f5;
+  --color-white-100: #ececec;
+  --color-white-200: #d6d6d6;
+  --color-white-400: #b8b8b8;
+  --color-white-600: #8d8d8d;
+  --color-white-900: #484848;
+  --color-black-50: #141414;
+  --color-black-100: #1e1e1f;
+  --color-black-200: #303033;
+  --color-black-400: #48474b;
+  --color-black-400: #6e6d70;
+  --color-black-600: #6e6d70;
+  --color-black-900: #cecece;
+  --color-blue-50: #839cb5;
+  --color-blue-100: #2d2d38; */
 }
 
 @theme {
   --font-sans: "Mona Sans", sans-serif;
-  --color-white-50: #d9ecff;
-  --color-black-50: #1c1c21;
+  /* --color-white-50: #f9fafa;
+  --color-white-100: #e9f4ff;
+  --color-white-200: #dee4ea;
+  --color-white-400: #e9ecef; */
+  /* --color-black-50: #1c1c21;
   --color-black-100: #0e0e10;
   --color-black-200: #282732;
-  --color-black-400: #383744;
+  --color-black-400: #383744; */
+  --color-white-50: #f5f5f5;
+  --color-white-100: #ececec;
+  --color-white-200: #d6d6d6;
+  --color-white-400: #b8b8b8;
+  --color-white-600: #8d8d8d;
+  --color-white-900: #484848;
+  --color-black-50: #141414;
+  --color-black-100: #1e1e1f;
+  --color-black-200: #303033;
+  --color-black-400: #48474b;
+  --color-black-600: #6e6d70;
+  --color-black-900: #cecece;
   --color-blue-50: #839cb5;
   --color-blue-100: #2d2d38;
 
-  --breakpoint-md-mobile: 390px;
+  /* --breakpoint-md-mobile: 390px; */
 }
 
 @layer utilities {
@@ -74,7 +119,7 @@ section {
 
 @layer components {
   .blue-gradient {
-    @apply bg-gradient-to-br from-[#0191FF] via-black to-white/45 border-zinc-700;
+    @apply bg-gradient-to-br from-[#0191FF]/50 via-white dark:via-black to-black/15 dark:to-white/45 border-white-100 dark:border-black-200;
   }
 
   .bmap {
@@ -85,8 +130,8 @@ section {
     @apply rounded-none;
   }
 
-  .rounded-field {
-    @apply rounded-none;
+  .field-style {
+    @apply placeholder-white-600 dark:placeholder-black-600 text-base bg-white-100 dark:bg-black-100 rounded-none;
   }
 
   .rounded-card {
@@ -102,15 +147,15 @@ section {
   }
 
   .section-padding {
-    @apply px-5 pt-6 md:px-14 lg:px-20 md:mt-22 mt-12;
+    @apply pt-4 px-5 md:px-14 lg:px-20 pb-8 md:pb-18 lg:pb-14;
   }
 
   .hero-padding {
-    @apply lg:pt-0 -mb-10 md:-mb-18 lg:-mb-10;
+    @apply xl:pt-5 lg:pb-3;
   }
 
   .header-margin {
-    @apply mb-10 md:mb-16 lg:mb-20;
+    @apply mb-10 md:mb-16 lg:mb-12;
   }
   .header-margin-proj {
     @apply mb-10 md:mb-14 lg:mb-16;
@@ -146,22 +191,35 @@ section {
   }
 
   .hero-wrapper {
+    @apply overflow-visible relative flex flex-col md:flex-col xl:flex-row gap-0 justify-between items-center;
+  }
+
+  .hero-text-wrapper {
+    @apply z-10 pt-14 md:pt-20 lg:pt-5 w-full xl:w-[60%];
+  }
+
+  .hero-3d-wrapper {
+    @apply flex-auto h-[40vh] xl:h-[90vh] z-0 w-[100vw] xl:w-[40%] xl:mr-6 flex justify-center items-center;
+  }
+
+  /* .hero-wrapper {
     @apply overflow-hidden relative h-[80vh] md:h-[92vh] lg:h-[50vh] xl:h-[100vh] flex flex-col md:flex-col lg:flex-row gap-4 md:gap-14 lg:gap-0 justify-between items-center;
   }
 
   .hero-text-wrapper {
     @apply z-10 pt-14 md:pt-20 lg:pt-5 w-[100vw] lg:w-[60%];
-    /* @apply relative xl:z-10  md:h-dvh h-[75vh] flex xl:mt-8 xl:items-center items-start justify-center; */
-    /* @apply relative xl:z-10 xl:mt-20 mt-32 md:h-dvh h-[75vh] flex xl:items-center items-start justify-center; */
   }
 
   .hero-3d-wrapper {
     @apply flex-auto z-0 w-[100vw] lg:w-[40%] lg:mr-6 flex justify-center items-center;
-    /* @apply border-2 flex-auto border-red-400 mr-4 z-0 lg:mb-12  overflow-visible w-[100vw] lg:min-w-[40vw] lg:max-w-[50vw] h-[500px] lg:h-[600px] flex justify-center items-center; */
-  }
+  } */
 
   .model-3d {
-    @apply overflow-hidden w-[500px] h-[42vh] md-mobile:h-[60vh] md:h-[500px];
+    @apply overflow-hidden
+         w-full
+         h-full;
+    /* h-[290px] sm:h-[320px] md:h-[400px] lg:h-[520px]; */
+    /* @apply overflow-hidden border-2 border-green-500 w-[500px] h-[700px] md-mobile:h-[60vh] md:h-[500px]; */
     /* @apply border-2 border-yellow-400 scale-[130%] mr-[180px] mb-[210px]  w-full h-full; */
     /* @apply xl:w-[70%] w-full h-[50vh] md:h-full md:min-h-[50vh] absolute xl:-top-20 top-100 md:top-70 xl:-right-20 right-0; */
   }
@@ -177,7 +235,7 @@ section {
   }
 
   .hero-badge {
-    @apply bg-black-200 py-2 px-4 rounded-full w-fit text-sm md:text-base text-nowrap;
+    @apply bg-white-50 dark:bg-black-50 py-2 px-5 rounded-full w-fit text-sm md:text-base text-nowrap;
   }
 
   .app-showcase {
@@ -284,7 +342,11 @@ section {
   }
 
   .card-border {
-    @apply border border-black-50 bg-black-100;
+    @apply border border-white-50 dark:border-black-50 bg-white-50 dark:bg-black-50;
+  }
+
+  .label-style {
+    @apply font-medium text-sm text-black-400 dark:text-white-400;
   }
 
   .marquee-item {
@@ -296,10 +358,10 @@ section {
     /* @apply absolute top-0 xl:left-[35.5vw] md:left-10 left-5 h-full flex justify-center; */
   }
 
-  .timeline {
-    /* @apply absolute z-30 h-[100%] sm:h-[110%] -top-10 w-14 md:w-28 bg-black; */
-    /* @apply absolute z-30 h-[110%] -top-10 w-14 md:w-28 bg-black; */
-  }
+  /* .timeline {
+    @apply absolute z-30 h-[100%] sm:h-[110%] -top-10 w-14 md:w-28 bg-black;
+    @apply absolute z-30 h-[110%] -top-10 w-14 md:w-28 bg-black;
+  } */
 
   .timeline-logo {
     @apply md:size-20 size-14 flex-none rounded-full flex justify-center items-center;
@@ -330,7 +392,7 @@ section {
   }
 
   .footer {
-    @apply my-10 md:mt-20 mt-10 text-white-50 px-5 md:px-20 xl:px-20 flex items-center justify-center;
+    @apply py-10 md:py-10 text-white-50 px-5 md:px-20 xl:px-20 flex items-center justify-center;
 
     .footer-container {
       @apply grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-0 w-full;

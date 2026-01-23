@@ -2,25 +2,49 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Environment, Preload } from "@react-three/drei";
 import { useMediaQuery } from "react-responsive";
 // import { Head } from "./Head.jsx";
-import { HeadOpt } from "./HeadOpt.jsx";
+// import { HeadOpt } from "./HeadOpt.jsx";
+// import { Helmet } from "./Helmet.jsx";
 // import HeroHeadLight from "./HeroHeadLight.jsx";
-import { useEffect, useRef } from "react";
-import { Shape } from "./Shape.jsx";
+import { useEffect, useRef, useState } from "react";
+// import { Shape } from "./Shape.jsx";
+import { Helmet } from "./Helmet-optimized.jsx";
 // import { useGSAP } from "@gsap/react";
 
 const HeroHead = () => {
+  // const isExtraSmall = useMediaQuery({ query: "(max-width: 639px)" }); // xs: 0-639px
+  // const isSmall = useMediaQuery({
+  //   query: "(min-width: 640px) and (max-width: 767px)",
+  // }); // sm: 640-767px
   const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
   const isTabletPortrait = useMediaQuery({
     query:
-      "(min-width: 768px) and (max-width: 1024px) and (orientation: portrait)",
+      "(min-width: 768px) and (max-width: 1023px) and (orientation: portrait)",
   });
+  const isLarge = useMediaQuery({ query: "(min-width: 1024px)" }); // xs: 0-639px
 
-  const scale = isMobile ? 1.0 : isTabletPortrait ? 1.5 : 1.6; // Smaller on mobile, medium on tablet, larger on desktop
-  const position = isMobile
-    ? [0, -0.3, 0]
-    : isTabletPortrait
-    ? [0, -0.9, 0]
-    : [0, -1.2, 0]; // Smaller on mobile, medium on tablet, larger on desktop
+  // const scale = isMobile ? 1.0 : isTabletPortrait ? 1.5 : 1.4; // Smaller on mobile, medium on tablet, larger on desktop
+
+  // const scale = isExtraSmall
+  //   ? 5
+  //   : isSmall
+  //     ? 5
+  //     : isMobile
+  //       ? 5
+  //       : isTabletPortrait
+  //         ? 5
+  //         : // : 5
+  //           isLarge
+  //           ? 5
+  //           : 5;
+
+  //same scaling for all devices
+  const scale = 5;
+  //this position is for the cyberpunk headset
+  // const position = isMobile
+  //   ? [0, -0.3, 0]
+  //   : isTabletPortrait
+  //     ? [0, -0.9, 0]
+  //     : [0, -1.2, 0]; // Smaller on mobile, medium on tablet, larger on desktop
   const headRef = useRef();
   const controlRef = useRef();
 
@@ -44,19 +68,40 @@ const HeroHead = () => {
   //   }
   // }, []);
 
+  const [isDark, setIsDark] = useState(
+    document.documentElement.classList.contains("dark"),
+  );
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    });
+
+    observer.observe(document.documentElement, { attributes: true });
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div className="w-full h-full">
       <Canvas
         // frameloop={"always"}  //this is for another shape
-        // frameloop="always" //this is for vr-headset (in small screen it needs to rotate so it is set always but in large screen it should only rotate when user interact so 'demand')
-        frameloop={isMobile || isTabletPortrait ? "always" : "demand"} //this is for vr-headset (in small screen it needs to rotate so it is set always but in large screen it should only rotate when user interact so 'demand')
-        camera={{ position: [8, 0, 8], fov: 20 }}
+        frameloop="always" //it needs to rotate in all screens)
+        // frameloop={isMobile || isTabletPortrait ? "always" : "demand"} //this is for vr-headset (in small screen it needs to rotate so it is set always but in large screen it should only rotate when user interact so 'demand')
+        // camera={{ position: [0, 0, 0], fov: 10 }}
+        camera={{ position: [0, 0, 4], fov: 35 }}
         style={isMobile || isTabletPortrait ? { pointerEvents: "none" } : {}}
       >
         <Preload all />
         {/* Lighting */}
         {/* <Environment preset="forest" /> */}
-        <Environment preset="warehouse" background={false} intensity={0.01} />
+        {/* <Environment preset="warehouse" intensity={isDark ? 1.2 : 1.8} /> */}
+        <Environment
+          preset={isDark ? "warehouse" : "apartment"}
+          // background={false}
+          // intensity={0.01}
+        />
+        {/* <Environment preset="apartment" background={false} intensity={0.01} /> */}
+
         {/*custom lights can be added or modified like here below */}
         {/* <HeroHeadLight />  */}
         {/* Camera Controls */}
@@ -68,10 +113,12 @@ const HeroHead = () => {
           // autoRotateSpeed={2.0}
           ///these three for vr-headset
           // enabled="true" //can rotate in all devices including mobile, tablets
-          enabled={!isMobile && !isTabletPortrait} //can't rotate in mobile and tablets
-          // autoRotate="true" //rotates in pc as well
-          autoRotate={isMobile || isTabletPortrait} //rotates only in mobile and tablets
-          autoRotateSpeed={isMobile || isTabletPortrait ? 5.0 : 1.0} //rotates slow for pc and faster for mobiles and tablets
+          enabled={true} //rotatea in both in all devices
+          // enabled={!isMobile && !isTabletPortrait} //can't rotate in mobile and tablets
+          autoRotate={true} //rotates in pc as well
+          // autoRotate={isMobile || isTabletPortrait} //rotates only in mobile and tablets
+          autoRotateSpeed={1.0} //rotates in same speed in all devices
+          // autoRotateSpeed={isMobile || isTabletPortrait ? 5.0 : 1.0} //rotates slow for pc and faster for mobiles and tablets
           // autoRotateSpeed={5.0} //rotates faster
           enablePan={false}
           // maxDistance={20}
@@ -93,11 +140,15 @@ const HeroHead = () => {
           // position={[0, -0.1, 0]}
           //for vr-headset
           scale={scale}
-          position={position}
+          position={[0, 0, 0]}
+          // position={position}
           rotation={[0, -Math.PI / 1.4, 0]}
           // remove from here to add in gsap above
         >
-          <HeadOpt />
+          {/* <HeadOpt isDark={isDark} /> */}
+          {/* <Helmet /> */}
+          <Helmet />
+          {/* <HeadOpt /> */}
           {/* <Shape /> */}
         </group>
       </Canvas>
