@@ -120,15 +120,6 @@ const ProjectInfo = ({ domainType }) => {
                 </div>
 
                 {/* half image */}
-                {/* <div className="overflow-hidden row-start-3 col-start-2 row-span-1 col-span-1 sm:row-start-3 sm:row-span-1 sm:col-span-2 lg:row-start-3 lg:col-span-1 lg:col-start-2 bg-white-50 dark:bg-black-50 relative bento-radius">
-                  <img
-                    className="absolute top-0 left-0 w-full h-full object-cover scale-125 xl:scale-100"
-                    src={proj.image}
-                    alt={`${proj.title} image`}
-                  />
-                  <div className="absolute inset-0 bg-white/20 dark:bg-black/20 z-10"></div>
-                </div> */}
-                {/* half image */}
                 <div className=" overflow-hidden row-start-3 col-start-2 row-span-1 col-span-1 sm:row-start-3 sm:row-span-1 sm:col-span-2 lg:row-start-3 lg:col-span-1 lg:col-start-2 bg-white-50 dark:bg-black-50 relative bento-radius">
                   <img
                     className="absolute top-0 left-0 scale-125 xl:-top-16 xl:left-0 xl:scale-100"
@@ -137,7 +128,7 @@ const ProjectInfo = ({ domainType }) => {
                   />
                   <div className="absolute inset-0 bg-white/20 dark:bg-black/20 z-10"></div>
                 </div>
-                <div className="row-start-3 row-span-1 col-span-1 sm:row-start-3 sm:col-start-3 sm:row-span-1 sm:col-span-1 lg:col-start-3 lg:row-start-1 bg-white-50 dark:bg-black-50 flex items-center justify-center bento-radius">
+                <div className="row-start-3 row-span-1 col-span-1 sm:row-start-3 sm:col-start-3 sm:row-span-1 sm:col-span-1 lg:col-start-3 lg:row-start-1 bg-white-50 dark:bg-black-50  flex items-center justify-center bento-radius">
                   <img
                     className="w-[60%]"
                     src={proj.logo}
@@ -174,10 +165,10 @@ const ProjectInfo = ({ domainType }) => {
                 </div>
               </div>
             </div>
-            <div
-              className={`${ind === 0 && "w-full mt-12 bg-black-50/15 dark:bg-white-50/15 h-[0.03rem]"}`}
-            />
           </div>
+          <div
+            className={`${ind === 0 && "w-full mt-12 bg-black-50/15 dark:bg-white-50/15 h-[0.03rem]"}`}
+          />
         </div>
       ))}
     </div>
@@ -237,16 +228,16 @@ const ProjectInfo = ({ domainType }) => {
                 </div>
 
                 {/* half image */}
-                <div className="overflow-hidden row-start-3 row-span-1 col-span-1 sm:row-start-4 sm:col-span-1 lg:row-span-2 lg:col-start-3 lg:row-start-2 bg-white-50 dark:bg-black-50 relative bento-radius">
+                <div className=" overflow-hidden row-start-3 gap-0 row-span-1 col-span-1 sm:row-start-4 sm:col-span-1 lg:row-span-2 lg:col-start-3 lg:row-start-2 flex justify-center items-center bg-white-50 dark:bg-black-50 relative bento-radius">
                   <img
-                    className="absolute top-0 left-0 w-full h-full object-cover scale-[175%] md:scale-100 lg:scale-[200%] lg:top-24 lg:left-0 xl:scale-[130%] xl:top-5"
+                    className="absolute top-10 left-0 scale-[175%] md:top-0 md:scale-[100%] lg:scale-[200%] lg:top-24 lg:left-0 xl:scale-[130%] xl:top-5"
                     src={proj.image}
                     alt={`${proj.title} image`}
                   />
                   <div className="absolute inset-0 bg-white/20 dark:bg-black/20 z-10"></div>
                 </div>
 
-                <div className="row-start-4 row-span-1 col-span-2 sm:row-start-3 sm:col-span-1 lg:col-start-3 lg:row-start-1 bg-white-50 dark:bg-black-50 flex items-center justify-center bento-radius">
+                <div className="row-start-4 row-span-1 col-span-2 sm:row-start-3 sm:col-span-1 lg:col-start-3 lg:row-start-1 bg-white-50 dark:bg-black-50  flex items-center justify-center bento-radius">
                   <img
                     className="w-[70%]"
                     src={proj.logo}
@@ -260,7 +251,7 @@ const ProjectInfo = ({ domainType }) => {
                     </h3>
 
                     {/* 3x3 or 4x3 Grid */}
-                    <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-4 gap-4 h-[calc(100%-4rem)] place-items-center">
+                    <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-4  gap-4 h-[calc(100%-4rem)] place-items-center">
                       {proj.projectIcons.map((tech) => (
                         <div
                           key={tech.name}
@@ -283,10 +274,10 @@ const ProjectInfo = ({ domainType }) => {
                 </div>
               </div>
             </div>
-            <div
-              className={`${ind === 0 && "w-full mt-12 bg-black-50/15 dark:bg-white-50/15 h-[0.03rem]"}`}
-            />
           </div>
+          <div
+            className={`${ind === 0 && "w-full mt-12 bg-black-50/15 dark:bg-white-50/15 h-[0.03rem]"}`}
+          />
         </div>
       ))}
     </div>
