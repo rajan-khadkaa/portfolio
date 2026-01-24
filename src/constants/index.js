@@ -233,7 +233,7 @@ const webProjects = [
     title: "Planit",
     logo: "/images/project-logo/planit-modified.svg",
     description:
-      "Plan-It is a productivity app to capture ideas, set future goals, and track personal progress. Revisit your saved goals and check off what you’ve accomplished over time.",
+      "Plan-It is a productivity app to capture ideas, set future goals, and track personal progress. Revisit your saved goals and see what you’ve accomplished.",
     projectIcons: [
       {
         name: "React",
@@ -261,7 +261,7 @@ const webProjects = [
       },
     ],
     thumbnail: "/images/thumbnails/planit.png",
-    image: "/images/mockups/planit2.png",
+    image: "/images/mockups/planit.png",
     link: {
       githubLink: "https://github.com/rajan-khadkaa/plan-it",
       demoLink: "https://plan-it-mern-app.vercel.app/",
@@ -272,7 +272,7 @@ const webProjects = [
     title: "Spendly",
     logo: "/images/project-logo/spendly.svg",
     description:
-      "Spendly is a simple financial tracker to manage income and expenses with category filters. Easily review your transactions, and recover deleted records from the bin.",
+      "Spendly is a financial tracker that helps to manage income and expenses with category filters. Review and gain insights into overall transaction trends.",
     projectIcons: [
       {
         name: "React",
@@ -296,7 +296,7 @@ const webProjects = [
       },
     ],
     thumbnail: "/images/thumbnails/spendly.png",
-    image: "/images/mockups/spendly2.png",
+    image: "/images/mockups/spendly.png",
     link: {
       githubLink: "https://github.com/rajan-khadkaa/income-expense-tracker",
       demoLink: "https://income-expense-mern-app.vercel.app/",
@@ -344,7 +344,7 @@ const mobProjects = [
       },
     ],
     thumbnail: "/images/thumbnails/medsync.png",
-    image: "/images/mockups/medsync4.png",
+    image: "/images/mockups/medsync.png",
     link: {
       githubLink: "https://github.com/rajan-khadkaa/medsync-mobile-app",
       demoLink:
@@ -368,7 +368,7 @@ const mobProjects = [
       },
     ],
     thumbnail: "/images/thumbnails/paydrift.png",
-    image: "/images/mockups/paydrift4.png",
+    image: "/images/mockups/paydrift.png",
     link: {
       githubLink: "https://github.com/rajan-khadkaa/paydrift-mobile-app",
       demoLink:
@@ -421,7 +421,7 @@ const designProjects = [
       },
     ],
     thumbnail: "/images/thumbnails/safetrack.png",
-    image: "/images/mockups/safetrack4.png",
+    image: "/images/mockups/safetrack.png",
     link: {
       demoLink:
         "https://rajankhadka.notion.site/SafeTrack-Child-Monitoring-App-2221fb7474b14dc4854f7a0840207f35",
@@ -448,7 +448,7 @@ const designProjects = [
       },
     ],
     thumbnail: "/images/thumbnails/hrms.png",
-    image: "/images/mockups/hrms2.png",
+    image: "/images/mockups/hrms.png",
     link: {
       demoLink:
         "https://rajankhadka.notion.site/HRMS-Human-Resource-Management-79e46b9f123248069996c822633b6893",

@@ -109,7 +109,7 @@ const Workprocess = () => {
                           // onMouseLeave={(e) =>
                           //   (e.currentTarget.style.borderColor = "#9f9f9f")
                           // }
-                          className="size-14 border-[1.5px] border-white-100/70 dark:border-black-100 lg:size-16 overflow-visible p-2  transition-colors duration-300 flex flex-col items-center rounded-full"
+                          className="size-14 border-[1.5px] border-white-100/80 dark:border-black-200/90 hover:border-white-600 dark:hover:border-black-600 lg:size-16 overflow-visible p-2  transition-colors duration-300 flex flex-col items-center rounded-full"
                         >
                           <img
                             className="size-full"
@@ -157,7 +157,7 @@ const Workprocess = () => {
           <div
             ref={timelineWrapperRef}
             style={{ left: `${timelineLeft}px` }}
-            className="timeline-wrapper bg-green-400 translate-x-[24px] md:translate-x-[30px] lg:translate-x-10 absolute top-0 h-full z-20"
+            className="timeline-wrapper translate-x-[24px] md:translate-x-[30px] lg:translate-x-10 absolute top-0 h-full z-20"
           >
             <div className="timeline absolute  bg-white dark:bg-black top-0 left-1/2 w-20 md:w-24 h-full z-30 transform -translate-x-1/2" />
           </div>

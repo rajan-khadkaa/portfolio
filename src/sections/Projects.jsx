@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { counterItems } from "../constants";
 import Tilt from "react-parallax-tilt";
 import { gsap } from "gsap";
@@ -9,6 +9,28 @@ import TitleHeader from "../components/TitleHeader";
 const Projects = () => {
   const sectionRef = useRef(null);
   const [domain, setDomain] = useState("mobile");
+  const [isDark, setIsDark] = useState(() =>
+    document.documentElement.classList.contains("dark"),
+  );
+
+  useEffect(() => {
+    const checkTheme = () => {
+      const isDarkMode = document.documentElement.classList.contains("dark");
+      setIsDark(isDarkMode);
+    };
+
+    // Check initially
+    checkTheme();
+
+    // Watch for changes
+    const observer = new MutationObserver(checkTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   useGSAP(() => {
     gsap.fromTo(
@@ -31,46 +53,52 @@ const Projects = () => {
     >
       <TitleHeader title="My Works" sub="Projects" />
       <div className="mx-auto grid-3-cols header-margin-proj w-full">
-        {counterItems.map((item) => (
-          <Tilt
-            key={item.label}
-            glareEnable={true}
-            glareMaxOpacity={0.3}
-            glarePosition="all"
-            transitionSpeed={1500}
-            tiltMaxAngleX={3}
-            tiltMaxAngleY={3}
-            style={{
-              // borderRadius: 12,
-              overflow: "hidden",
-              height: "fit-content",
-              cursor: "pointer",
-            }}
-          >
-            <div
-              onClick={() => setDomain(item.domain)}
-              className={`${
-                item.domain === domain
-                  ? "blue-gradient"
-                  : // ? "bg-gradient-to-br from-orange-500 via-[#0191FF] to-black border-zinc-700"
-                    "border-white-50 dark:border-black-50"
-              } border-[1px] bg-white-50 dark:bg-black-50 p-10 flex flex-col justify-center transition-all duration-300`}
+        {counterItems.map((item) => {
+          const active = domain === item.domain;
+
+          return (
+            <Tilt
+              // key={item.label}
+              key={`${item.label}-${active}`} //this remounts the card (as it will have new key each time) to hide/disable the glare
+              glareEnable={!active}
+              glareMaxOpacity={isDark ? 0.3 : 0.2} // Darker in light mode
+              glareColor={isDark ? "white" : "rgba(0, 0, 0, 0.9)"} // White vs dark glare
+              glarePosition="all"
+              transitionSpeed={1500}
+              tiltMaxAngleX={active ? 0 : 3.5}
+              tiltMaxAngleY={active ? 0 : 3.5}
+              style={{
+                // borderRadius: 12,
+                overflow: "hidden",
+                height: "fit-content",
+                cursor: active ? "default" : "pointer",
+              }}
             >
-              {/* <div
+              <div
+                onClick={() => setDomain(item.domain)}
+                className={`${
+                  item.domain === domain
+                    ? "blue-gradient"
+                    : // ? "bg-gradient-to-br from-orange-500 via-[#0191FF] to-black border-zinc-700"
+                      "border-white-50 dark:border-black-50"
+                } border-[1px] bg-white-50 dark:bg-black-50 p-10 flex flex-col justify-center transition-all duration-300`}
+              >
+                {/* <div
               onClick={() => setDomain(item.domain)}
               className={`${
                 item.domain === domain ? "border-zinc-700" : "border-zinc-900"
               } border-[1.5px] bg-zinc-900 p-10 flex flex-col justify-center rounded-2xl`}
             > */}
-              <div className="text-black-400 dark:text-white-400 text-base lg:text-lg mb-4">
-                Let's see
+                <div className="text-black-400 dark:text-white-400 text-base lg:text-lg mb-4">
+                  Let's see
+                </div>
+                <div className="counter-number text-black-200 dark:text-white-200 text-2xl lg:text-3xl font-bold mb-2">
+                  {item.label}
+                </div>
               </div>
-              <div className="counter-number text-black-200 dark:text-white-200 text-2xl lg:text-3xl font-bold mb-2">
-                {item.label}
-              </div>
-            </div>
-          </Tilt>
-        ))}
+            </Tilt>
+          );
+        })}
       </div>
       <div className="w-full">
         {domain === "mobile" && <ProjectInfo domainType="mobile" />}

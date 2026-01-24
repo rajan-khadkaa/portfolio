@@ -33,13 +33,20 @@ const PrimaryButton = ({
         />
       </div>
 
-      <div className="z-30 flex items-center gap-2">
+      <div className="z-30 flex items-center gap-1">
         <p className="text-base font-medium">{text}</p>
-        <FaArrowDown
-          className={`${ArrowStyle} transform transition-all duration-500
+        <div className=" w-0 group-hover:w-6 transition-all duration-300 flex items-center justify-center">
+          <FaArrowDown
+            className={`${ArrowStyle} transform transition-all duration-500
+            opacity-0 scale-0`}
+            size={14}
+          />
+        </div>
+        {/* <FaArrowDown
+          className={`${ArrowStyle} border border-blue-700 hover:w-10 w-0 transform transition-all duration-500
             opacity-0 scale-0`}
           size={14}
-        />
+        /> */}
       </div>
       {/* <div className="w-2 h-10 bg-yellow-400 sm:bg-red-400 md:bg-green-400 lg:bg-blue-500 xl:bg-white-50" /> */}
     </button>

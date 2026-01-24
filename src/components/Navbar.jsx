@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   HomeIcon,
   BriefcaseIcon,
@@ -9,7 +9,13 @@ import ThemeToggler from "./ThemeToggler";
 
 function Navbar() {
   const [active, setActive] = useState("home");
-  // const [isDark, setIsDark] = useState(true);
+  const [trackModeSwitch, setTrackModeSwitch] = useState(0);
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    const preferredTheme = localStorage.getItem("theme") || "dark";
+    preferredTheme === "dark" ? setIsDark(true) : setIsDark(false);
+  }, [trackModeSwitch]);
 
   return (
     <div className="relative">
@@ -110,8 +116,14 @@ function Navbar() {
           </div>
         </a>
         <span className="w-[0.12rem] h-[70%] text-white-400 text-xs group-hover:text-white dark:group-hover:text-black bg-white-200 dark:bg-black-200" />
-        <div className="w-[50px] h-full hover:w-[70px] transition-all duration-500 flex flex-col items-center justify-center cursor-pointer">
+        <div
+          onClick={() => setTrackModeSwitch(trackModeSwitch + 1)}
+          className="w-[50px] group h-full hover:w-[70px] transition-all duration-500 flex flex-col items-center justify-center cursor-pointer"
+        >
           <ThemeToggler />
+          <span className="text-[10px] whitespace-nowrap infoTip absolute -top-9 opacity-0 bg-white-100 dark:bg-black-100 text-black dark:text-white px-2 py-1 rounded-md group-hover:opacity-100 transition-opacity z-20">
+            {isDark ? "Light" : "Dark"}
+          </span>
         </div>
       </div>
     </div>

@@ -12,16 +12,16 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
 const Skills = () => {
-  // const skillList = skillListOriginal;
+  const skillList = skillListOriginal;
 
-  let skillList;
-  const preferredTheme = localStorage.getItem("theme") || "dark";
-  if (preferredTheme === "light") {
-    // skillList = skillListLight;
-    skillList = skillListOriginal;
-  } else {
-    skillList = skillListDark;
-  }
+  // let skillList;
+  // const preferredTheme = localStorage.getItem("theme") || "dark";
+  // if (preferredTheme === "light") {
+  //   // skillList = skillListLight;
+  //   skillList = skillListOriginal;
+  // } else {
+  //   skillList = skillListDark;
+  // }
   // const skillList = [...skillListTop, ...skillListBottom];
   const containerRef = useRef(null);
   const highlightRef = useRef(null);

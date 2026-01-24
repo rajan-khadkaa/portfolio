@@ -18,9 +18,14 @@ const HeroHead = () => {
   const isMobile = useMediaQuery({ query: "(max-width: 767px)" });
   const isTabletPortrait = useMediaQuery({
     query:
-      "(min-width: 768px) and (max-width: 1023px) and (orientation: portrait)",
+      "(min-width: 768px) and (max-width: 1024px) and (orientation: portrait)",
   });
-  const isLarge = useMediaQuery({ query: "(min-width: 1024px)" }); // xs: 0-639px
+  const isLaptop = useMediaQuery({
+    query: "(min-width: 1025px) and (max-width: 1439px)", // laptops
+  });
+  const isLargeDesktop = useMediaQuery({
+    query: "(min-width: 1440px)", // Full HD+ screens and large desktops
+  });
 
   // const scale = isMobile ? 1.0 : isTabletPortrait ? 1.5 : 1.4; // Smaller on mobile, medium on tablet, larger on desktop
 
@@ -38,7 +43,8 @@ const HeroHead = () => {
   //           : 5;
 
   //same scaling for all devices
-  const scale = 5;
+  const scale = isLargeDesktop ? 4 : 5;
+  // const scale = 5;
   //this position is for the cyberpunk headset
   // const position = isMobile
   //   ? [0, -0.3, 0]
@@ -73,13 +79,24 @@ const HeroHead = () => {
   );
 
   useEffect(() => {
-    const observer = new MutationObserver(() => {
+    const updateTheme = () => {
       setIsDark(document.documentElement.classList.contains("dark"));
+    };
+
+    // sync immediately (important for Three.js)
+    updateTheme();
+
+    const observer = new MutationObserver(updateTheme);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
     });
 
-    observer.observe(document.documentElement, { attributes: true });
     return () => observer.disconnect();
   }, []);
+  // useEffect(() => {
+  //   console.log("Screen width:", window.innerWidth, "Scale:", scale);
+  // }, [scale]);
 
   return (
     <div className="w-full h-full">
@@ -88,6 +105,10 @@ const HeroHead = () => {
         frameloop="always" //it needs to rotate in all screens)
         // frameloop={isMobile || isTabletPortrait ? "always" : "demand"} //this is for vr-headset (in small screen it needs to rotate so it is set always but in large screen it should only rotate when user interact so 'demand')
         // camera={{ position: [0, 0, 0], fov: 10 }}
+        // camera={{
+        //   position: [0, 0, 4],
+        //   fov: window.innerWidth >= 1920 ? 45 : 35, // Narrower FOV for wide screens
+        // }}
         camera={{ position: [0, 0, 4], fov: 35 }}
         style={isMobile || isTabletPortrait ? { pointerEvents: "none" } : {}} // user will interact only in pc
       >
@@ -96,7 +117,8 @@ const HeroHead = () => {
         {/* <Environment preset="forest" /> */}
         {/* <Environment preset="warehouse" intensity={isDark ? 1.2 : 1.8} /> */}
         <Environment
-          preset={isDark ? "warehouse" : "apartment"}
+          preset={isDark ? "warehouse" : "city"}
+          // intensity={isDark ? 40 : 50}
           // background={false}
           // intensity={0.01}
         />
@@ -118,7 +140,7 @@ const HeroHead = () => {
           autoRotate={true} //rotates in pc as well
           // autoRotate={isMobile || isTabletPortrait} //rotates only in mobile and tablets
           // autoRotateSpeed={1.0} //rotates in same speed in all devices
-          autoRotateSpeed={isMobile || isTabletPortrait ? 3.0 : 1.0} //rotates slow for pc and faster for mobiles and tablets
+          autoRotateSpeed={isMobile || isTabletPortrait ? 2.0 : 1.0} //rotates slow for pc and faster for mobiles and tablets
           // autoRotateSpeed={isMobile || isTabletPortrait ? 5.0 : 1.0} //rotates slow for pc and faster for mobiles and tablets
           // autoRotateSpeed={5.0} //rotates faster
           enablePan={false}

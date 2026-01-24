@@ -78,15 +78,15 @@ const ProjectInfo = ({ domainType }) => {
               <h2 className="text-lg md:text-2xl font-bold text-black-200 dark:text-white-200">
                 {proj.title}
               </h2>
-              <div className=" flex items-center justify-center gap-6 -mb-2">
+              <div className=" flex items-center justify-center gap-6 -mb-[0.75rem]">
                 <a
-                  className={`cursor-pointer font-medium  relative overflow-hidden group text-black-200 dark:text-white-200 text-xl flex gap-1 items-center justify-center`}
+                  className={`cursor-pointer font-medium  relative overflow-hidden group text-black-200 dark:text-white-200 flex gap-1 items-center justify-center`}
                   href={proj.link.githubLink}
                   target="_blank"
                 >
                   <p className="text-base md:text-lg ml-0">Github</p>
 
-                  <FaArrowUp className="rotate-45" size={16} />
+                  <FaArrowUp className="rotate-45" size={15} />
                   <div className="w-[100%] absolute left-0 bottom-0 h-[0.08rem] bg-black dark:bg-white -translate-x-[102%] group-hover:translate-x-0 transition-transform duration-200"></div>
                 </a>
                 <a
@@ -96,13 +96,13 @@ const ProjectInfo = ({ domainType }) => {
                 >
                   <p className="text-base md:text-lg ml-0">Demo</p>
 
-                  <FaArrowUp className="rotate-45" size={16} />
+                  <FaArrowUp className="rotate-45" size={15} />
                   <div className="w-[100%] absolute left-0 bottom-0 h-[0.08rem] bg-black dark:bg-white -translate-x-[102%] group-hover:translate-x-0 transition-transform duration-200"></div>
                 </a>
               </div>
             </div>
             <div>
-              {/* <div className="bg-yellow-400 sm:bg-red-400 md:bg-green-400 lg:bg-blue-500 xl:bg-white-50 grid grid-cols-2 grid-rows-5 sm:grid-cols-3 sm:grid-rows-3 lg:grid-cols-3 lg:grid-rows-3 gap-2 max-h-[90vh] sm:max-h-[90vh] lg:max-h-[90vh]"> */}
+              {/* <div className="bg-yellow-400 sm:bg-red-400 md:bg-green-400 lg:bg-blue-500 xl:bg-purple-500 2xl:bg-indigo-500 grid grid-cols-2 grid-rows-4 lg:grid-cols-3 lg:grid-rows-3 gap-2 max-h-[90vh]" /> */}
               <div className="grid grid-cols-2 grid-rows-5 sm:grid-cols-3 sm:grid-rows-3 lg:grid-cols-3 lg:grid-rows-3 gap-2 max-h-[90vh] sm:max-h-[90vh] lg:max-h-[90vh]">
                 <div className="col-span-2 row-span-1 sm:row-span-1 sm:col-span-3 lg:col-span-2 lg:row-span-2 first-project-wrapper">
                   <div className="thumbnail-img-wrapper bg-white-50 dark:bg-black-50 bento-radius">
@@ -122,11 +122,11 @@ const ProjectInfo = ({ domainType }) => {
                 {/* half image */}
                 <div className=" overflow-hidden row-start-3 col-start-2 row-span-1 col-span-1 sm:row-start-3 sm:row-span-1 sm:col-span-2 lg:row-start-3 lg:col-span-1 lg:col-start-2 bg-white-50 dark:bg-black-50 relative bento-radius">
                   <img
-                    className="absolute top-0 left-0 scale-125 xl:-top-16 xl:left-0 xl:scale-100"
+                    className="absolute w-full h-full scale-200 left-20 top-12 md:top-28 md:left-40 lg:top-16 lg:left-28 xl:left-28 xl:top-32 object-contain xl:scale-[300%] 2xl:scale-200"
                     src={proj.image}
                     alt={`${proj.title} image`}
                   />
-                  <div className="absolute inset-0 bg-white/20 dark:bg-black/20 z-10"></div>
+                  {/* <div className="absolute inset-0 bg-white/20 dark:bg-black/20 z-10"></div> */}
                 </div>
                 <div className="row-start-3 row-span-1 col-span-1 sm:row-start-3 sm:col-start-3 sm:row-span-1 sm:col-span-1 lg:col-start-3 lg:row-start-1 bg-white-50 dark:bg-black-50  flex items-center justify-center bento-radius">
                   <img
@@ -185,32 +185,32 @@ const ProjectInfo = ({ domainType }) => {
               <div className=" flex items-center justify-center gap-6 -mb-1">
                 {domainType !== "design" && (
                   <a
-                    className={`cursor-pointer relative overflow-hidden group text-black-200 dark:text-white-200 text-xl flex gap-1 items-center justify-center`}
+                    className={`cursor-pointer relative font-medium overflow-hidden group text-black-200 dark:text-white-200 text-xl flex gap-1 items-center justify-center`}
                     href={proj.link.githubLink}
                     target="_blank"
                   >
-                    <p className="text-base md:text-xl ml-0">Github</p>
+                    <p className="text-base md:text-lg ml-0">Github</p>
 
-                    <FaArrowUp className="rotate-45" size={16} />
+                    <FaArrowUp className="rotate-45" size={15} />
                     <div className="w-[100%] absolute left-0 bottom-0 h-[0.1rem] bg-black dark:bg-white -translate-x-[102%] group-hover:translate-x-0 transition-transform duration-200"></div>
                   </a>
                 )}
                 <a
-                  className={`cursor-pointer relative overflow-hidden group text-black-200 dark:text-white-200 text-xl flex gap-1 items-center justify-center`}
+                  className={`cursor-pointer relative font-medium overflow-hidden group text-black-200 dark:text-white-200 text-xl flex gap-1 items-center justify-center`}
                   href={proj.link.demoLink}
                   target="_blank"
                 >
-                  <p className="text-base md:text-xl ml-0">
+                  <p className="text-base md:text-lg ml-0">
                     {domainType === "design" ? "Case Study" : "Demo"}
                   </p>
 
-                  <FaArrowUp className="rotate-45" size={16} />
+                  <FaArrowUp className="rotate-45" size={15} />
                   <div className="w-[100%] absolute left-0 bottom-0 h-[0.1rem] bg-black dark:bg-white -translate-x-[102%] group-hover:translate-x-0 transition-transform duration-200"></div>
                 </a>
               </div>
             </div>
             <div>
-              {/* <div className="bg-yellow-400 sm:bg-red-400 md:bg-green-400 lg:bg-blue-500 xl:bg-white-50 grid grid-cols-2 grid-rows-4 lg:grid-cols-3 lg:grid-rows-3 gap-2 max-h-[90vh]"> */}
+              {/* <div className="bg-yellow-400 sm:bg-red-400 md:bg-green-400 lg:bg-blue-500 xl:bg-purple-500 2xl:bg-indigo-500 grid grid-cols-2 grid-rows-4 lg:grid-cols-3 lg:grid-rows-3 gap-2 max-h-[90vh]" /> */}
               <div className="grid grid-cols-2 grid-rows-4 lg:grid-cols-3 lg:grid-rows-3 gap-2 max-h-[90vh]">
                 <div className="col-span-2 row-span-1 sm:row-span-2 lg:col-span-2 lg:row-span-2 first-project-wrapper">
                   <div className="thumbnail-img-wrapper bg-white-50 dark:bg-black-50 bento-radius">
@@ -230,11 +230,11 @@ const ProjectInfo = ({ domainType }) => {
                 {/* half image */}
                 <div className=" overflow-hidden row-start-3 gap-0 row-span-1 col-span-1 sm:row-start-4 sm:col-span-1 lg:row-span-2 lg:col-start-3 lg:row-start-2 flex justify-center items-center bg-white-50 dark:bg-black-50 relative bento-radius">
                   <img
-                    className="absolute top-10 left-0 scale-[175%] md:top-0 md:scale-[100%] lg:scale-[200%] lg:top-24 lg:left-0 xl:scale-[130%] xl:top-5"
+                    className={`absolute w-full h-full object-contain ${proj.title === "HRMS" ? " scale-200 left-20 top-10 md:top-24 md:left-32 lg:scale-[250%] lg:top-20 lg:left-44 xl:scale-[200%] xl:left-32 xl:top-24 object-contain 2xl:scale-[250%] 2xl:left-60 2xl:top-24" : "  inset-0 scale-[175%] md:scale-[150%] lg:scale-[170%] xl:scale-[130%] 2xl:scale-[170%]"} `}
                     src={proj.image}
                     alt={`${proj.title} image`}
                   />
-                  <div className="absolute inset-0 bg-white/20 dark:bg-black/20 z-10"></div>
+                  {/* <div className="absolute inset-0 bg-white/20 dark:bg-black/20 z-10"></div> */}
                 </div>
 
                 <div className="row-start-4 row-span-1 col-span-2 sm:row-start-3 sm:col-span-1 lg:col-start-3 lg:row-start-1 bg-white-50 dark:bg-black-50  flex items-center justify-center bento-radius">
@@ -276,7 +276,7 @@ const ProjectInfo = ({ domainType }) => {
             </div>
           </div>
           <div
-            className={`${ind === 0 && "w-full mt-12 bg-black-50/15 dark:bg-white-50/15 h-[0.03rem]"}`}
+            className={`${ind === 0 && "w-full mt-12 bg-white-200 dark:bg-black-200 h-[0.03rem]"}`}
           />
         </div>
       ))}
