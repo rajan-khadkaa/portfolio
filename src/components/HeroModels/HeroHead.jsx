@@ -117,7 +117,8 @@ const HeroHead = () => {
         {/* <Environment preset="forest" /> */}
         {/* <Environment preset="warehouse" intensity={isDark ? 1.2 : 1.8} /> */}
         <Environment
-          preset={isDark ? "warehouse" : "city"}
+          preset={"warehouse"}
+          // preset={isDark ? "warehouse" : "city"}
           // intensity={isDark ? 40 : 50}
           // background={false}
           // intensity={0.01}
